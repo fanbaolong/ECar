@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+            <title>充电协议</title>
+            <meta name="keywords" content="">
+                <meta name="description" content="">
+                    <meta content="yes" name="apple-mobile-web-app-capable">
+                        <meta content="yes" name="apple-touch-fullscreen">
+                            <meta content="telephone=no,email=no" name="format-detection">
+                                <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                                    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    </head>
+    <style>
+        body,h1,h2,h3,p,dl,dd,ol,ul,th,td,fieldset,input,button,textarea,form,canvas,audio,video,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+            margin:0;
+            padding:0
+        }
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+        display:block
+    }
+    audio,canvas,video{
+        display:inline-block;
+        *display:inline;
+        *zoom:1
+    }
+    
+    body{
+        font: 12px/1 tahoma,arial, 'Microsoft YaHei';
+    }
+    
+    table{
+        border-collapse:collapse;
+        border-spacing:0;
+        empty-cells:show;
+        font-size:inherit
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 100%;
+        font-weight:500
+    }
+    
+    ul,ol,li {
+        list-style: none
+    }
+    
+    em,i {
+        font-style: normal
+    }
+    
+    strong,b {
+        font-weight: normal
+    }
+    
+    img {
+        border: 0
+    }
+    
+    input,img {
+        vertical-align: middle
+    }
+    
+    a {
+        color: #3d4245;
+        text-decoration: none
+    }
+    * {
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
+    }
+    
+    input,select,textarea {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        border: 0;
+        border-radius: 0
+    }
+    
+    textarea:focus {
+        outline: 0
+    }
+    
+    
+    cite,em,s,i,b{
+        font-style:normal
+    }
+    body,input,button,textarea,select{
+        /*font-size:100%*/
+    }
+    
+    a,input,textarea{
+        text-decoration:none;
+        outline:0;
+        -webkit-tap-highlight-color:rgba(0,0,0,0)
+    }
+    li,img,label,input{
+        vertical-align:middle
+    }
+    var{
+        font-style:normal
+    }
+    ins{
+        text-decoration:none
+    }
+    abbr,acronym{
+        border:0;
+        font-variant:normal
+    }
+    sup{
+        vertical-align:text-top
+    }
+    sub{
+        vertical-align:text-bottom
+    }
+    button,select{
+        text-transform:none
+    }
+    button[disabled],html input[disabled]{
+        cursor:default
+    }
+    input[type=checkbox],input[type=radio]{
+        box-sizing:border-box;
+        padding:0;
+        *height:13px;
+        *width:13px
+    }
+    button,input,select,textarea{
+        margin:0;
+        vertical-align:baseline;
+        *vertical-align:middle
+    }
+    button::-moz-focus-inner,input[type=reset]::-moz-focus-inner,input[type=button]::-moz-focus-inner,input[type=submit]::-moz-focus-inner,input[type=file]>input[type=button]::-moz-focus-inner{
+        border:0;
+        padding:0
+    }
+    button,html input[type=button],input[type=reset],input[type=submit]{
+        -webkit-appearance:button;
+        cursor:pointer;
+        *overflow:visible
+    }
+    a,span,i{
+        display: inline-block;
+    }
+    .clear:after{
+        visibility:hidden;
+        display:block;
+        font-size:0;
+        content:" ";
+        clear:both;
+        height:0
+    }
+    .clear{
+        zoom:1
+    }
+    
+    html{
+        -webkit-text-size-adjust:100%;
+        text-size-adjust:100%;
+        word-wrap:break-word;
+        height: 100%;
+    }
+    body {
+        color: #000;
+        -webkit-text-size-adjust: none;
+        height: 100%;
+    }
+    .wrap{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        color: #1f1f1f;
+    }
+    
+    .title {
+        font-size: .3rem;
+        line-height: .6rem;
+        text-align: center;
+    }
+    
+    .wrap p {
+        margin: .15rem .4rem;
+        font-size: .30rem;
+        line-height: .4rem;
+    }
+    </style>
+    <script>
+        (function(doc, win) {
+         var docEl = doc.documentElement,
+         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+         recalc = function() {
+         var clientWidth = docEl.clientWidth;
+         if (clientWidth > 1024) {
+         clientWidth = 1024;
+         }
+         if (!clientWidth) return;
+         docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'; //100为放大的倍数,为了保证能够正确缩放，sass里面必须对原稿尺寸缩小100倍
+         };
+         if (!doc.addEventListener) return;
+         win.addEventListener(resizeEvt, recalc, false);
+         doc.addEventListener('DOMContentLoaded', recalc, false);
+         recalc();
+         //alert(docEl.style.fontSize);
+         })(document, window);
+        </script>
+    
+    <body>
+        <div class="wrap">
+            <p>1.用户不得以任何方式将车辆提供给任何第三方人驾驶，否则此产生的后果和责任均由用户自行承担。</p>
+            <p>2.用户遵守各项法律法规，不得将租赁车辆专卖，抵押，质押，转借，典当，转租租赁车辆以及从事营利性营运，不得利用车辆从事不符合其功能的运输。</p>
+            <p>3.用户不得将车辆任何非法或粗鲁方式使用；或用于比赛或速度竞赛，或运送易燃易爆的物品，化学品。易腐蚀物品或其他有害原材料或任何种类和性质的污染物质。</p>
+			<p>4.任何服用酒精，或麻醉或药物的人员不得驾驶，无论其是否在医生的指导下使用上述物品。</p>
+			<p>5.用户不得将车辆行驶到任何没有铺设的土路上行驶或越野行驶。</p>
+			<p>6.车辆不得承载超出核定限承人数以外的人数，不得拆除或安装车辆内配备的任何物品及设备。</p>
+        </div>
+    </body>
+    
+</html>

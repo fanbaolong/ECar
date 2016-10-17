@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+            <title>充电协议</title>
+            <meta name="keywords" content="">
+                <meta name="description" content="">
+                    <meta content="yes" name="apple-mobile-web-app-capable">
+                        <meta content="yes" name="apple-touch-fullscreen">
+                            <meta content="telephone=no,email=no" name="format-detection">
+                                <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                                    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    </head>
+    <style>
+        body,h1,h2,h3,p,dl,dd,ol,ul,th,td,fieldset,input,button,textarea,form,canvas,audio,video,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+            margin:0;
+            padding:0
+        }
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+        display:block
+    }
+    audio,canvas,video{
+        display:inline-block;
+        *display:inline;
+        *zoom:1
+    }
+    
+    body{
+        font: 12px/1 tahoma,arial, 'Microsoft YaHei';
+    }
+    
+    table{
+        border-collapse:collapse;
+        border-spacing:0;
+        empty-cells:show;
+        font-size:inherit
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 100%;
+        font-weight:500
+    }
+    
+    ul,ol,li {
+        list-style: none
+    }
+    
+    em,i {
+        font-style: normal
+    }
+    
+    strong,b {
+        font-weight: normal
+    }
+    
+    img {
+        border: 0
+    }
+    
+    input,img {
+        vertical-align: middle
+    }
+    
+    a {
+        color: #3d4245;
+        text-decoration: none
+    }
+    * {
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
+    }
+    
+    input,select,textarea {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        border: 0;
+        border-radius: 0
+    }
+    
+    textarea:focus {
+        outline: 0
+    }
+    
+    
+    cite,em,s,i,b{
+        font-style:normal
+    }
+    body,input,button,textarea,select{
+        /*font-size:100%*/
+    }
+    
+    a,input,textarea{
+        text-decoration:none;
+        outline:0;
+        -webkit-tap-highlight-color:rgba(0,0,0,0)
+    }
+    li,img,label,input{
+        vertical-align:middle
+    }
+    var{
+        font-style:normal
+    }
+    ins{
+        text-decoration:none
+    }
+    abbr,acronym{
+        border:0;
+        font-variant:normal
+    }
+    sup{
+        vertical-align:text-top
+    }
+    sub{
+        vertical-align:text-bottom
+    }
+    button,select{
+        text-transform:none
+    }
+    button[disabled],html input[disabled]{
+        cursor:default
+    }
+    input[type=checkbox],input[type=radio]{
+        box-sizing:border-box;
+        padding:0;
+        *height:13px;
+        *width:13px
+    }
+    button,input,select,textarea{
+        margin:0;
+        vertical-align:baseline;
+        *vertical-align:middle
+    }
+    button::-moz-focus-inner,input[type=reset]::-moz-focus-inner,input[type=button]::-moz-focus-inner,input[type=submit]::-moz-focus-inner,input[type=file]>input[type=button]::-moz-focus-inner{
+        border:0;
+        padding:0
+    }
+    button,html input[type=button],input[type=reset],input[type=submit]{
+        -webkit-appearance:button;
+        cursor:pointer;
+        *overflow:visible
+    }
+    a,span,i{
+        display: inline-block;
+    }
+    .clear:after{
+        visibility:hidden;
+        display:block;
+        font-size:0;
+        content:" ";
+        clear:both;
+        height:0
+    }
+    .clear{
+        zoom:1
+    }
+    
+    html{
+        -webkit-text-size-adjust:100%;
+        text-size-adjust:100%;
+        word-wrap:break-word;
+        height: 100%;
+    }
+    body {
+        color: #000;
+        -webkit-text-size-adjust: none;
+        height: 100%;
+    }
+    .wrap{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        color: #1f1f1f;
+    }
+    
+    .title {
+        font-size: .3rem;
+        line-height: .6rem;
+        text-align: center;
+    }
+    
+    .wrap p {
+        margin: .15rem .4rem;
+        font-size: .30rem;
+        line-height: .4rem;
+    }
+    </style>
+    <script>
+        (function(doc, win) {
+         var docEl = doc.documentElement,
+         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+         recalc = function() {
+         var clientWidth = docEl.clientWidth;
+         if (clientWidth > 1024) {
+         clientWidth = 1024;
+         }
+         if (!clientWidth) return;
+         docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'; //100为放大的倍数,为了保证能够正确缩放，sass里面必须对原稿尺寸缩小100倍
+         };
+         if (!doc.addEventListener) return;
+         win.addEventListener(resizeEvt, recalc, false);
+         doc.addEventListener('DOMContentLoaded', recalc, false);
+         recalc();
+         //alert(docEl.style.fontSize);
+         })(document, window);
+        </script>
+    
+    <body>
+        <div class="wrap">
+            <p>1.手机预约租车的用户打开APP在地图中选择自己想要的网点，进行预约车辆，填写预约取车和预约还车时间，，确认信息并支付押金。</p>
+            <p>2.到达车辆网点时用手机客户端扫描车辆上的二维码，系统自动调出预约订单关联，并再一次确认租车，用手机客户端打开车门将开始计费。</p>
+            <p>3.车辆使用完毕需将车辆还回车辆网点，用手机客户端锁好车，并且将车子插上充电头充电，在点击立即还车，系统将在订单时长中开始计费，账户内余额充足则还车成功，否则还车失败需及时向账户中充值方可还车。</p>
+        </div>
+    </body>
+    
+</html>

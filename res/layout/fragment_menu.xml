@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_match_all"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/layout_match_wrap"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@color/holo_title"
+        android:paddingBottom="@dimen/dimen_30dp"
+        android:paddingTop="@dimen/dimen_30dp" >
+
+        <ImageView
+            android:id="@+id/img_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/user_head" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/img_head"
+            android:text="熊猫头头"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_20dp" />
+
+        <ImageView
+            android:id="@+id/go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_go_write" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_login"
+        style="@style/layout_match_wrap"
+        android:layout_height="@dimen/dimen_120dp"
+        android:background="@color/holo_title"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dimen_30dp"
+        android:paddingTop="@dimen/dimen_50dp" >
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/menu_btn_login"
+            android:text="@string/title_login"
+            android:textColor="@color/holo_title"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        style="@style/layout_match_wrap"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/selector_left"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            style="@style/layout_match_wrap"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="4"
+            android:src="@drawable/home" />
+
+        <TextView
+            style="@style/slidingmenu_left_text"
+            android:layout_weight="1"
+            android:text="首页" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_my_wallet"
+        style="@style/layout_match_wrap"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/selector_left"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/layout_match_wrap"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:src="@drawable/my_wallet" />
+
+        <TextView
+            style="@style/slidingmenu_left_text"
+            android:layout_weight="1"
+            android:text="@string/my_wallet" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_car_rental"
+        style="@style/layout_match_wrap"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/selector_left"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/layout_match_wrap"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:src="@drawable/car_rental" />
+
+        <TextView
+            style="@style/slidingmenu_left_text"
+            android:layout_weight="1"
+            android:text="@string/car_rental" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_about"
+        style="@style/layout_match_wrap"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/selector_left"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/layout_match_wrap"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:src="@drawable/about" />
+
+        <TextView
+            style="@style/slidingmenu_left_text"
+            android:layout_weight="1"
+            android:text="@string/about" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_edit_pwd"
+        style="@style/layout_match_wrap"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/selector_left"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/layout_match_wrap"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:src="@drawable/edit_pwd" />
+
+        <TextView
+            style="@style/slidingmenu_left_text"
+            android:layout_weight="1"
+            android:text="@string/change_pwd" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_login_out"
+        style="@style/layout_match_wrap"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/selector_left"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/layout_match_wrap"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:src="@drawable/login_out" />
+
+        <TextView
+            style="@style/slidingmenu_left_text"
+            android:layout_weight="1"
+            android:text="@string/exit" />
+    </LinearLayout>
+
+</LinearLayout>

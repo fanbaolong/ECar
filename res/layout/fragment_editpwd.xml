@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" >
+
+        <RelativeLayout
+            android:id="@+id/old_pwd_relat"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" >
+
+            <EditText
+                android:id="@+id/old_pwd_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/old_pwd_left_text"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/input_old_pwd"
+                android:inputType="textPassword"
+                android:paddingRight="35dp"
+                android:singleLine="true"
+                android:textColor="#3c3c3c"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/old_pwd_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="7dip"
+                android:text="@string/old_pwd"
+                android:textSize="@dimen/text_h2" />
+
+            <ImageView
+                android:id="@+id/old_pwd_del"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@null"
+                android:src="@drawable/login_del"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/change_pwd_lin1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/old_pwd_relat"
+            android:background="@color/line_bg" />
+
+        <RelativeLayout
+            android:id="@+id/new_pwd_relat"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/change_pwd_lin1"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" >
+
+            <EditText
+                android:id="@+id/new_pwd_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/new_pwd_left_text"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/input_new_pwd"
+                android:inputType="textPassword"
+                android:paddingRight="35dp"
+                android:singleLine="true"
+                android:textColor="#3c3c3c"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/new_pwd_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="7dip"
+                android:text="@string/new_pwd"
+                android:textSize="@dimen/text_h2" />
+
+            <ImageView
+                android:id="@+id/new_pwd_del"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@null"
+                android:src="@drawable/login_del"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/change_pwd_lin2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/new_pwd_relat"
+            android:background="@color/line_bg" />
+
+        <RelativeLayout
+            android:id="@+id/new_pwd_again_relat"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/change_pwd_lin2"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" >
+
+            <EditText
+                android:id="@+id/new_pwd_again_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/new_pwd_again_left_text"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/input_new_pwd_again"
+                android:inputType="textPassword"
+                android:paddingRight="35dp"
+                android:singleLine="true"
+                android:textColor="#3c3c3c"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/new_pwd_again_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="7dip"
+                android:text="@string/new_pwd_again"
+                android:textSize="@dimen/text_h2" />
+
+            <ImageView
+                android:id="@+id/new_pwd_again_del"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@null"
+                android:src="@drawable/login_del"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_change_pwd"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_login_select"
+        android:text="@string/btn_sure"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

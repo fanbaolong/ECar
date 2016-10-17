@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/my_name_relat"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@color/white" >
+
+            <TextView
+                android:id="@+id/my_name_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="7dip"
+                android:text="@string/my_name"
+                android:textSize="@dimen/text_h2" />
+
+            <EditText
+                android:id="@+id/my_name_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/my_name_left_text"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/my_name_hint"
+                android:paddingRight="35dp"
+                android:singleLine="true"
+                android:textColor="#3c3c3c"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line_bg" />
+
+        <RelativeLayout
+            android:id="@+id/my_card_relat"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@color/white" >
+
+            <TextView
+                android:id="@+id/my_card_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="7dip"
+                android:text="@string/id_number"
+                android:textSize="@dimen/text_h2" />
+
+            <EditText
+                android:id="@+id/my_card_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/my_card_left_text"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/id_number_hint"
+                android:paddingRight="35dp"
+                android:singleLine="true"
+                android:textColor="#3c3c3c"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line_bg" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/card_img1"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:src="@drawable/add_card1" />
+
+            <ImageView
+                android:id="@+id/card_img2"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:src="@drawable/add_card2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/shili1"
+                android:layout_width="85.6dp"
+                android:layout_height="54dp"
+                android:background="@drawable/id_card1"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/shili2"
+                android:layout_width="85.6dp"
+                android:layout_height="54dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/id_card2"
+                android:contentDescription="@null" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_image_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:text="图片示例"
+            android:textSize="@dimen/text_h5" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relat_upload_status"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="审核状态:" />
+
+        <TextView
+            android:id="@+id/tv_upload_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="已审核" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_upload"
+        style="@style/layout_match_wrap"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:background="@drawable/btn_yellow_select"
+        android:gravity="center"
+        android:padding="@dimen/dimen_10dp"
+        android:text="提交审核"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_20dp" />
+
+</LinearLayout>

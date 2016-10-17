@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView style="@style/layout_match_all" >
+
+        <LinearLayout
+            style="@style/layout_match_wrap"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                style="@style/layout_match_wrap"
+                android:layout_height="@dimen/dimen_130dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_20dp" >
+
+                <TextView
+                    android:id="@+id/tv_detailstate"
+                    style="@style/layout_wrap_all"
+                    android:text="支付成功"
+                    android:textColor="@color/holo_title"
+                    android:textSize="@dimen/text_h3" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="100"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_match_wrap"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_orderssn"
+                    style="@style/layout_wrap_all"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingTop="@dimen/dimen_10dp"
+                    android:text="流水号：888888888888"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_h3" />
+
+                <TextView
+                    android:id="@+id/tv_money_pay"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingTop="@dimen/dimen_10dp"
+                    android:text="支付金额：100"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_h3" />
+
+                <TextView
+                    android:id="@+id/tv_pay_time"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingTop="@dimen/dimen_10dp"
+                    android:text="支付时间：2016-1-15 12:00"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_h3" />
+
+                <TextView
+                    android:id="@+id/tv_paymentmethod"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_10dp"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingTop="@dimen/dimen_10dp"
+                    android:text="支付方式：支付宝"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_h3" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

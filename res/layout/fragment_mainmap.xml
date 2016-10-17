@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/titlebar_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_default_height1"
+        android:layout_marginTop="20dp"
+        android:background="@color/holo_title" >
+
+        <ImageButton
+            android:id="@+id/map_top_left_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/titlebar_btn_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:gravity="left|center_vertical"
+            android:minWidth="40dp"
+            android:src="@drawable/icon_menu"
+            android:textSize="@dimen/titlebar_btn_text_size" />
+
+        <TextView
+            android:id="@+id/map_top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxWidth="200dp"
+            android:text="@string/map"
+            android:textColor="#FFF"
+            android:textSize="@dimen/titlebar_title_textSize" />
+
+        <ImageView
+            android:id="@+id/map_top_right_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:minWidth="40dp"
+            android:src="@drawable/icon_scan"
+            android:textSize="@dimen/titlebar_btn_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/main_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/dingwei_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="44dp"
+            android:layout_marginLeft="34dp"
+            android:contentDescription="@null"
+            android:src="@drawable/logo_dingwei" />
+
+    </RelativeLayout>
+
+</LinearLayout>

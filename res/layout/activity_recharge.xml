@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/choice_recharge_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:checkedButton="@+id/choice_recharge_radio0"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/choice_recharge_radio0"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dimen_60dp"
+            android:background="@null"
+            android:button="@null"
+            android:drawableLeft="@drawable/icon_weixin"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/checkbox_checked_style"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/weixin"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:background="@color/main_bg" />
+
+        <RadioButton
+            android:id="@+id/choice_recharge_radio1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dimen_60dp"
+            android:background="@null"
+            android:button="@null"
+            android:drawableLeft="@drawable/icon_zhifubao"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/checkbox_checked_style"
+            android:ellipsize="end"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:text="@string/zhifubao"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/money_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="@string/money"
+            android:textSize="@dimen/text_h2" />
+
+        <EditText
+            android:id="@+id/money_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/money_right_text"
+            android:layout_toRightOf="@+id/money_left_text"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:hint="50"
+            android:inputType="numberDecimal"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="#3c3c3c"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/money_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="@string/yuan"
+            android:textSize="@dimen/text_h2" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_recharge"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_yellow_select"
+        android:text="@string/to_recharge"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+            <title>充电协议</title>
+            <meta name="keywords" content="">
+                <meta name="description" content="">
+                    <meta content="yes" name="apple-mobile-web-app-capable">
+                        <meta content="yes" name="apple-touch-fullscreen">
+                            <meta content="telephone=no,email=no" name="format-detection">
+                                <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                                    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    </head>
+    <style>
+        body,h1,h2,h3,p,dl,dd,ol,ul,th,td,fieldset,input,button,textarea,form,canvas,audio,video,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+            margin:0;
+            padding:0
+        }
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+        display:block
+    }
+    audio,canvas,video{
+        display:inline-block;
+        *display:inline;
+        *zoom:1
+    }
+    
+    body{
+        font: 12px/1 tahoma,arial, 'Microsoft YaHei';
+    }
+    
+    table{
+        border-collapse:collapse;
+        border-spacing:0;
+        empty-cells:show;
+        font-size:inherit
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 100%;
+        font-weight:500
+    }
+    
+    ul,ol,li {
+        list-style: none
+    }
+    
+    em,i {
+        font-style: normal
+    }
+    
+    strong,b {
+        font-weight: normal
+    }
+    
+    img {
+        border: 0
+    }
+    
+    input,img {
+        vertical-align: middle
+    }
+    
+    a {
+        color: #3d4245;
+        text-decoration: none
+    }
+    * {
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
+    }
+    
+    input,select,textarea {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        border: 0;
+        border-radius: 0
+    }
+    
+    textarea:focus {
+        outline: 0
+    }
+    
+    
+    cite,em,s,i,b{
+        font-style:normal
+    }
+    body,input,button,textarea,select{
+        /*font-size:100%*/
+    }
+    
+    a,input,textarea{
+        text-decoration:none;
+        outline:0;
+        -webkit-tap-highlight-color:rgba(0,0,0,0)
+    }
+    li,img,label,input{
+        vertical-align:middle
+    }
+    var{
+        font-style:normal
+    }
+    ins{
+        text-decoration:none
+    }
+    abbr,acronym{
+        border:0;
+        font-variant:normal
+    }
+    sup{
+        vertical-align:text-top
+    }
+    sub{
+        vertical-align:text-bottom
+    }
+    button,select{
+        text-transform:none
+    }
+    button[disabled],html input[disabled]{
+        cursor:default
+    }
+    input[type=checkbox],input[type=radio]{
+        box-sizing:border-box;
+        padding:0;
+        *height:13px;
+        *width:13px
+    }
+    button,input,select,textarea{
+        margin:0;
+        vertical-align:baseline;
+        *vertical-align:middle
+    }
+    button::-moz-focus-inner,input[type=reset]::-moz-focus-inner,input[type=button]::-moz-focus-inner,input[type=submit]::-moz-focus-inner,input[type=file]>input[type=button]::-moz-focus-inner{
+        border:0;
+        padding:0
+    }
+    button,html input[type=button],input[type=reset],input[type=submit]{
+        -webkit-appearance:button;
+        cursor:pointer;
+        *overflow:visible
+    }
+    a,span,i{
+        display: inline-block;
+    }
+    .clear:after{
+        visibility:hidden;
+        display:block;
+        font-size:0;
+        content:" ";
+        clear:both;
+        height:0
+    }
+    .clear{
+        zoom:1
+    }
+    
+    html{
+        -webkit-text-size-adjust:100%;
+        text-size-adjust:100%;
+        word-wrap:break-word;
+        height: 100%;
+    }
+    body {
+        color: #000;
+        -webkit-text-size-adjust: none;
+        height: 100%;
+    }
+    .wrap{
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        color: #1f1f1f;
+    }
+    
+    .title {
+        font-size: .3rem;
+        line-height: .6rem;
+        text-align: center;
+    }
+    
+    .wrap p {
+        margin: .15rem .4rem;
+        font-size: .30rem;
+        line-height: .4rem;
+    }
+    </style>
+    <script>
+        (function(doc, win) {
+         var docEl = doc.documentElement,
+         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+         recalc = function() {
+         var clientWidth = docEl.clientWidth;
+         if (clientWidth > 1024) {
+         clientWidth = 1024;
+         }
+         if (!clientWidth) return;
+         docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'; //100为放大的倍数,为了保证能够正确缩放，sass里面必须对原稿尺寸缩小100倍
+         };
+         if (!doc.addEventListener) return;
+         win.addEventListener(resizeEvt, recalc, false);
+         doc.addEventListener('DOMContentLoaded', recalc, false);
+         recalc();
+         //alert(docEl.style.fontSize);
+         })(document, window);
+        </script>
+    
+    <body>
+        <div class="wrap">
+            <p>1.感谢您使用本公司的充电桩，请您认真阅读充电协议。</p>
+            <p>2.本公司向您提供充电桩，充电安全可靠，技术状况良好，已在国家电力部门备案，已向保险公司投保充电桩的安全事故处理责任险。</p>
+            <p> 3.您使用的充电桩发生故障，请及时拨打我们的客服热线，以便我们维修方便客户使用。</p>
+            <p>4.为了是您的合法权益受到保障，您使用的充电桩只能在充电时间内使用，请不要随意插拔给他人使用，不要擅自破坏或安装其他附属设施，不得使用充电桩从事经营非法活动，在使用充电桩期间发生的人为损坏和违法行为，请及时接受处罚，自行承担法律责任。</p>
+        </div>
+    </body>
+    
+</html>

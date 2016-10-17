@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/map_pop_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="@dimen/dimen_180dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/poi_name"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@color/holo_title"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="车辆网点"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_h3" />
+
+        <ImageView
+            android:id="@+id/poi_pop_image"
+            android:layout_width="fill_parent"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_image"
+            android:contentDescription="@null"
+            android:padding="3dp"
+            android:src="@drawable/car" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="地址:"
+                android:textSize="@dimen/text_h4" />
+
+            <TextView
+                android:id="@+id/poi_pop_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="文星广场"
+                android:textSize="@dimen/text_h4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pile_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="可用充电桩:"
+                    android:textSize="@dimen/text_h4" />
+
+                <TextView
+                    android:id="@+id/poi_pop_pilenum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/poi_pop_tricklenum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="left"
+                    android:lineSpacingExtra="5dp"
+                    android:text=""
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/car_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="剩余车辆:"
+                    android:textSize="@dimen/text_h4" />
+
+                <TextView
+                    android:id="@+id/poi_pop_carNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="10"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="营业时间:"
+                    android:textSize="@dimen/text_h4" />
+
+                <TextView
+                    android:id="@+id/poi_pop_saletime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="10"
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="状态:"
+                    android:textSize="@dimen/text_h4" />
+
+                <TextView
+                    android:id="@+id/poi_pop_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="可以预约"
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+        </LinearLayout>
+
+            <Button
+            android:id="@+id/btn_yuyue"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_login_select"
+            android:text="@string/yuyue"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

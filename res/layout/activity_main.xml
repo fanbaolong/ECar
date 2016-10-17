@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" >
+
+        <FrameLayout
+            android:id="@+id/fragment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.xieyu.ecar.ui.view.TabHeadView
+                android:id="@+id/headView_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/mainlayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:id="@+id/basecontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </FrameLayout>
+            </RelativeLayout>
+        </FrameLayout>
+
+        <!-- 侧拉布局 -->
+
+        <LinearLayout
+            android:id="@+id/mMenu_layout"
+            style="@style/layout_match_all"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_my_head"
+                style="@style/layout_match_wrap"
+                android:layout_height="@dimen/dimen_120dp"
+                android:background="@color/holo_title"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dimen_30dp"
+                android:paddingTop="@dimen/dimen_50dp" >
+
+                <ImageView
+                    android:id="@+id/img_head"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginLeft="@dimen/dimen_20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/user_head" />
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    style="@style/layout_wrap_all"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:text="熊猫头头"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_20dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_60dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/icon_go_write" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_login"
+                style="@style/layout_match_wrap"
+                android:layout_height="@dimen/dimen_120dp"
+                android:background="@color/holo_title"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dimen_30dp"
+                android:paddingTop="@dimen/dimen_50dp"
+                android:visibility="gone" >
+
+                <Button
+                    android:id="@+id/btn_menu_login"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/menu_btn_login"
+                    android:text="@string/title_login"
+                    android:textColor="@color/titlebar_text_selector"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                style="@style/layout_match_wrap"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@drawable/selector_left"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ImageView
+                    style="@style/layout_match_wrap"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_weight="4"
+                    android:src="@drawable/home" />
+
+                <TextView
+                    style="@style/slidingmenu_left_text"
+                    android:layout_weight="1"
+                    android:text="首页" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_my_wallet"
+                style="@style/layout_match_wrap"
+                android:background="@drawable/selector_left"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/layout_match_wrap"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:src="@drawable/my_wallet" />
+
+                <TextView
+                    style="@style/slidingmenu_left_text"
+                    android:layout_weight="1"
+                    android:text="@string/my_wallet" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_bg" />
+
+            <LinearLayout
+                android:id="@+id/ll_car_process"
+                style="@style/layout_match_wrap"
+                android:background="@drawable/selector_left"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/layout_match_wrap"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:src="@drawable/car_rental" />
+
+                <TextView
+                    style="@style/slidingmenu_left_text"
+                    android:layout_weight="1"
+                    android:text="@string/car_progress" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_bg" />
+
+            <LinearLayout
+                android:id="@+id/ll_car_rental"
+                style="@style/layout_match_wrap"
+                android:background="@drawable/selector_left"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/layout_match_wrap"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:src="@drawable/car_rental" />
+
+                <TextView
+                    style="@style/slidingmenu_left_text"
+                    android:layout_weight="1"
+                    android:text="@string/car_rental" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_bg" />
+
+            <LinearLayout
+                android:id="@+id/ll_about"
+                style="@style/layout_match_wrap"
+                android:background="@drawable/selector_left"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/layout_match_wrap"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:src="@drawable/about" />
+
+                <TextView
+                    style="@style/slidingmenu_left_text"
+                    android:layout_weight="1"
+                    android:text="关于我们" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_bg" />
+
+            <LinearLayout
+                android:id="@+id/ll_edit_pwd"
+                style="@style/layout_match_wrap"
+                android:background="@drawable/selector_left"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/layout_match_wrap"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:src="@drawable/edit_pwd" />
+
+                <TextView
+                    style="@style/slidingmenu_left_text"
+                    android:layout_weight="1"
+                    android:text="修改密码" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_bg" />
+
+            <LinearLayout
+                android:id="@+id/ll_login_out"
+                style="@style/layout_match_wrap"
+                android:background="@drawable/selector_left"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/layout_match_wrap"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:src="@drawable/login_out" />
+
+                <TextView
+                    style="@style/slidingmenu_left_text"
+                    android:layout_weight="1"
+                    android:text="退出登录" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_bg" />
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

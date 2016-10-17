@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="网点详情" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <LinearLayout
+                    style="@style/layout_match_wrap"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/img_url"
+                        style="@style/layout_wrap_all"
+                        android:layout_width="80dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@null"
+                        android:src="@drawable/charge" />
+
+                    <LinearLayout
+                        style="@style/layout_match_wrap"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:text="网点:" />
+
+                            <TextView
+                                android:id="@+id/tv_scan_poi_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical"
+                                android:text="8号" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:text="地址:" />
+
+                            <TextView
+                                android:id="@+id/tv_scan_poi_address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical"
+                                android:text="工业园区南四环西路66-1号" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:text="充电桩数:" />
+
+                            <TextView
+                                android:id="@+id/tv_scan_piles_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical"
+                                android:text="22" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="电桩信息" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="电桩桩号:" />
+
+                    <TextView
+                        android:id="@+id/charge_pile_number"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="电桩状态:" />
+
+                    <TextView
+                        android:id="@+id/charge_pile_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="可充电" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/tv_scan_free_time"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp" >
+
+                    <TextView
+                        android:id="@+id/tv_scan_free_time_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:drawablePadding="3dp"
+                        android:text="可充电时间:"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/tv_scan_free_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv_scan_free_time_left"
+                        android:gravity="center_horizontal"
+                        android:text="8:00 \n 2015-12-29"
+                        android:textSize="@dimen/text_h3" />
+
+                    <ImageView
+                        android:id="@+id/iv_scan_free_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toRightOf="@+id/tv_scan_free_start_time"
+                        android:src="@drawable/icon_jiantou" />
+
+                    <TextView
+                        android:id="@+id/tv_scan_free_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_scan_free_image"
+                        android:gravity="center_horizontal"
+                        android:text="10:00 \n 2015-12-29"
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/tv_scan_charge_time_relat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_charge_time"
+                        android:drawablePadding="3dp"
+                        android:gravity="center_vertical"
+                        android:text="选择时间"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/tv_scan_charge_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="4dp"
+                        android:drawableRight="@drawable/icon_go"
+                        android:text=""
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/tv_scan_charge_degree_relat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_dushu"
+                        android:drawablePadding="3dp"
+                        android:gravity="center_vertical"
+                        android:text="选择度数"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/tv_scan_charge_degree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="4dp"
+                        android:drawableRight="@drawable/icon_go"
+                        android:text=""
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/tv_scan_charge_money_relat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/icon_charge_money"
+                        android:drawablePadding="3dp"
+                        android:gravity="center_vertical"
+                        android:text="所需金额"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/tv_scan_charge_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="4dp"
+                        android:text=""
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_scan_charge"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_yellow_select"
+                android:text="@string/sure_charging"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

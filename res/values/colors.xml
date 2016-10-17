@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bai">#f9f9f9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="red">#FF0000</color>
+    <color name="gold">#FFD700</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="yellow_booking">#F39801</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="orange">#FFA500</color>
+    <color name="holo_title">#27CC42</color>
+    <color name="order_start">#F2A225</color>
+    <color name="holo_red">#3EA73E</color>
+    <color name="main_bg">#F0F0F0</color>
+    <color name="line_bg">#D6D6D6</color>
+    <color name="red_text">#EC1946</color>
+    <color name="btn_gray">#B5B3B4</color>
+    <color name="txt_yrllow">#D2BE86</color>
+
+    <!-- 大布局背景 -->
+    <color name="background_color">#f0f0f0</color>
+    <!-- title下面的黑线 -->
+    <color name="title_unline">#bbbbbb</color>
+    <!-- 点击字体选中颜色 -->
+    <color name="bottom_text">#076b22</color>
+    <color name="transparent">#00000000</color>
+    <color name="btn_login_normal">#27CC42</color>
+    <color name="btn_login_pressed">#2CB044</color>
+    <color name="txt_code_pressed">#4F9228</color>
+    <color name="left_pressed">#EDEDED</color>
+    <color name="light_gray_transparent">#e6e6e6</color>
+
+    <!-- 下拉刷新 -->
+    <color name="pull_to_refresh_text">#777</color>
+    <color name="pull_to_refresh_sub_text">#999</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+</resources>

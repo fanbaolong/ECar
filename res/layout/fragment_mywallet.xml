@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="#455564" >
+
+        <TextView
+            android:id="@+id/my_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="可用余额：0元"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_h3" />
+
+        <TextView
+            android:id="@+id/freeze_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_balance"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="冻结押金：300元"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_h3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/recharge_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/recharge_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_chongzhi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/recharge_img"
+            android:text="@string/recharge" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_go" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/integral_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/integral_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_jifen" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/integral_img"
+            android:text="@string/integral" />
+
+        <TextView
+            android:id="@+id/my_integral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@+id/fen"
+            android:text="0"
+            android:textColor="@color/red_text" />
+
+        <TextView
+            android:id="@+id/fen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="@string/fen" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/coupons_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/coupons_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_youhui" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/coupons_img"
+            android:text="@string/coupons" />
+
+        <TextView
+            android:id="@+id/my_coupons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@+id/zhang"
+            android:text="0"
+            android:textColor="@color/red_text" />
+
+        <TextView
+            android:id="@+id/zhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="@string/zhang" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/recharge_detail_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/recharge_detail_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_mingxi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/recharge_detail_img"
+            android:text="@string/mingxi" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_go" />
+    </RelativeLayout>
+
+</LinearLayout>

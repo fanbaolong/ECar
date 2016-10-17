@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layoutbg"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+    <com.xieyu.ecar.ui.view.TabHeadView
+		android:id="@+id/headView_main"
+		android:layout_alignParentTop="true"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
+
+    <com.xieyu.ecar.ui.view.MyViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tabs" />
+
+    <com.xieyu.ecar.ui.view.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:overScrollMode="never" />
+
+</RelativeLayout>

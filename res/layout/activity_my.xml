@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.xieyu.ecar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dimen_160dp"
+        android:background="@color/holo_title" >
+
+        <com.xieyu.ecar.ui.view.CircularImageView
+            android:id="@+id/my_user_head"
+            android:layout_width="@dimen/dimen_60dp"
+            android:layout_height="@dimen/dimen_60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:contentDescription="@null"
+            android:src="@drawable/user_head"
+            app:border="false"
+            app:border_color="@color/white"
+            app:border_width="0dip"
+            app:shadow="false" />
+
+        <TextView
+            android:id="@+id/my_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_user_head"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="熊猫大大"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_h2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/my_userName_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/my_userName_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="7dip"
+            android:text="@string/usernametxt"
+            android:textSize="@dimen/text_h2" />
+
+        <EditText
+            android:id="@+id/my_userName_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/my_userName_left_text"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:paddingRight="35dp"
+            android:singleLine="true"
+            android:textColor="#3c3c3c"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/my_telephone_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/my_telephone_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="7dip"
+            android:text="@string/telephone"
+            android:textSize="@dimen/text_h2" />
+
+        <EditText
+            android:id="@+id/my_telephone_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/my_telephone_left_text"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:paddingRight="35dp"
+            android:singleLine="true"
+            android:textColor="#3c3c3c"
+            android:editable="false"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/my_email_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/my_email_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="7dip"
+            android:text="@string/email"
+            android:textSize="@dimen/text_h2" />
+
+        <EditText
+            android:id="@+id/my_email_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/my_email_left_text"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:inputType="textEmailAddress"
+            android:paddingRight="35dp"
+            android:singleLine="true"
+            android:textColor="#3c3c3c"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/my_address_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/my_address_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="7dip"
+            android:text="@string/my_address"
+            android:textSize="@dimen/text_h2" />
+
+        <EditText
+            android:id="@+id/my_address_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/my_address_left_text"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:paddingRight="35dp"
+            android:singleLine="true"
+            android:textColor="#3c3c3c"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/my_driver_image_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/my_driver_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="7dip"
+            android:text="@string/drive_card"
+            android:textSize="@dimen/text_h2" />
+
+        <TextView
+            android:id="@+id/my_driver_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/my_driver_update_text"
+            android:layout_toRightOf="@+id/my_driver_left_text"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:paddingRight="35dp"
+            android:singleLine="true"
+            android:text="@string/please_input_drive_image"
+            android:textColor="#3c3c3c"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/my_driver_update_text"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_login_select"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/noupload"
+            android:textColor="@color/white"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout
+        android:id="@+id/my_card_image_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/my_card_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="7dip"
+            android:text="@string/id_card"
+            android:textSize="@dimen/text_h2" />
+
+        <TextView
+            android:id="@+id/my_card_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/my_card_update_text"
+            android:layout_toRightOf="@+id/my_card_left_text"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:paddingRight="35dp"
+            android:singleLine="true"
+            android:text="@string/please_input_idcard_image"
+            android:textColor="#3c3c3c"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/my_card_update_text"
+           android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_of_gray"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/isupload"
+            android:textColor="@color/white"
+            android:textColorHint="#b3b3b3"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

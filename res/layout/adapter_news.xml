@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_5dp" >
+
+    <RelativeLayout style="@style/layout_match_all" >
+
+        <TextView
+            android:id="@+id/tv_news_title"
+            style="@style/layout_wrap_all"
+            android:layout_marginLeft="10dp"
+            android:text="绿能租车有限公司"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_h2" />
+
+        <TextView
+            android:id="@+id/tv_news_status"
+            style="@style/layout_wrap_all"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="未读"
+            android:textColor="@color/holo_title"
+            android:textSize="@dimen/dimen_15dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="3dp"
+        android:background="@color/line_bg" />
+
+    <RelativeLayout style="@style/layout_match_all" >
+
+        <TextView
+            android:id="@+id/tv_news_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_toLeftOf="@+id/tv_news_content_right"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:lines="2"
+            android:maxLines="2"
+            android:text=""
+            android:textSize="@dimen/text_h3" />
+
+        <ImageView
+            android:id="@+id/tv_news_content_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_go" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/layout_match_all"
+        android:layout_height="40dp" >
+
+        <TextView
+            android:id="@+id/tv_news_time"
+            style="@style/layout_wrap_all"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="2016-01-04 17:36"
+            android:textSize="@dimen/text_h4" />
+
+        <ImageView
+            android:id="@+id/tv_news_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/news_delete" />
+    </RelativeLayout>
+
+</LinearLayout>
