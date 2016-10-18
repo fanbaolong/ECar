@@ -52,6 +52,7 @@ import com.xieyu.ecar.injector.V;
 import com.xieyu.ecar.ui.BaseActivity;
 import com.xieyu.ecar.ui.BookCarDetailActivity;
 import com.xieyu.ecar.ui.BookChargeDetailActivity;
+import com.xieyu.ecar.ui.ControlActivity;
 import com.xieyu.ecar.ui.MainActivity;
 import com.xieyu.ecar.ui.ZBarScanActivity;
 
@@ -75,7 +76,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 	@V
 	private ImageButton map_top_left_btn;
 	@V
-	private ImageView dingwei_image;
+	private ImageView dingwei_image, img_key;
 	
 	//下单弹框
 	@V
@@ -406,6 +407,9 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 
 		case R.id.dingwei_image:
 			isLocal = true;
+			break;
+		case R.id.img_key://远程控制
+			startActivity(new Intent(getActivity(), ControlActivity.class));
 			break;
 		case R.id.img_rental_left:
 			

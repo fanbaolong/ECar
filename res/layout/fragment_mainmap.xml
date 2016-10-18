@@ -58,16 +58,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <ImageView
-            android:id="@+id/dingwei_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            style="@style/layout_wrap_all"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginBottom="44dp"
-            android:layout_marginLeft="34dp"
-            android:contentDescription="@null"
-            android:src="@drawable/logo_dingwei" />
+            android:layout_marginBottom="@dimen/dimen_60dp"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/dingwei_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/logo_dingwei" />
+            
+            <ImageView
+                android:id="@+id/img_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/key" />
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -78,8 +90,7 @@
 
         <View
             android:id="@+id/v_dialog"
-            style="@style/layout_match_all"
-             />
+            style="@style/layout_match_all" />
 
         <include
             style="@style/layout_match_wrap"
