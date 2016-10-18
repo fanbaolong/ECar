@@ -35,6 +35,11 @@
     <color name="txt_code_pressed">#4F9228</color>
     <color name="left_pressed">#EDEDED</color>
     <color name="light_gray_transparent">#e6e6e6</color>
+    
+    <!-- 黑色字体的三种颜色，又浅到深 -->
+    <color name="text_9">#999999</color>
+    <color name="text_6">#666666</color>
+    <color name="text_3">#333333</color>
 
     <!-- 下拉刷新 -->
     <color name="pull_to_refresh_text">#777</color>

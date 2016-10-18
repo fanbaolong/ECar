@@ -52,6 +52,7 @@ public class MainFragment extends SuperFragment
 	private MainMapFragment mainmap;
 	private MainOrderFragment mainorder;
 	private MainNewsFragment mainnews;
+	private MineFragemnt mine;
 	private int j = 0;
 
 	@Override
@@ -129,14 +130,19 @@ public class MainFragment extends SuperFragment
 			mainnews = new MainNewsFragment();
 			fragments.add(mainnews);
 		}
+		if (mine == null)
+		{
+			mine = new MineFragemnt();
+			fragments.add(mine);
+		}
 		fragment = 0;
 		tabs.setAllCaps(true);
-		tabs.setTabWidth(App.getInstance().getScreenWidth() / 3);
+		tabs.setTabWidth(App.getInstance().getScreenWidth() / 4);
 		tabs.setDividerColorResource(android.R.color.transparent);
 		tabs.setIndicatorColor(Color.TRANSPARENT);
 		tabs.setTabPaddingLeftRight(0);
 		tabs.setDividerPadding(0);
-		pager.setOffscreenPageLimit(3);// 预加载fragment数量
+		pager.setOffscreenPageLimit(4);// 预加载fragment数量
 		pager.setScanScroll(false);
 		adapter = new MyPagerAdapter(getFragmentManager(), tabs);
 		pager.setAdapter(adapter);
@@ -153,9 +159,9 @@ public class MainFragment extends SuperFragment
 		private final String[] TITLES;
 		private final TabView[] VIEWS;
 		private final int[] imgIds = new int[]
-		{ R.drawable.main_map_normal, R.drawable.main_order_normal, R.drawable.main_news_normal };
+		{ R.drawable.main_map_normal, R.drawable.main_order_normal, R.drawable.main_news_normal, R.drawable.main_news_normal };
 		private final int[] imgPressedIds = new int[]
-		{ R.drawable.main_map_pressed, R.drawable.main_order_pressed, R.drawable.main_news_pressed };
+		{ R.drawable.main_map_pressed, R.drawable.main_order_pressed, R.drawable.main_news_pressed, R.drawable.main_news_pressed };
 		private final PagerSlidingTabStrip tab;
 
 		public MyPagerAdapter(FragmentManager fm, PagerSlidingTabStrip tab)

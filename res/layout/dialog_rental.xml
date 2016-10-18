@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_match_wrap"
+    android:orientation="vertical" 
+    android:background="@color/white">
+    
+    <TextView 
+        android:id="@+id/tv_rental_address"
+        style="@style/layout_match_wrap"
+        android:textColor="@color/text_3"
+        android:textSize="@dimen/text_h2"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:gravity="center_horizontal"
+        android:text="上海虹口区曲阳路299号"/>
+    
+    <TextView 
+        android:id="@+id/tv_rental_parking"
+        style="@style/layout_match_wrap"
+        android:textColor="@color/text_6"
+        android:textSize="@dimen/text_h4"
+        android:layout_margin="@dimen/dimen_5dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:gravity="center_horizontal"
+        android:text="剩余车辆：9   专用停车位：2"/>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:background="@color/line_bg"/>
+    
+    <RelativeLayout 
+        style="@style/layout_match_wrap"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        >
+        <ImageView 
+            android:id="@+id/img_rental_left"
+            style="@style/layout_wrap_all"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dimen_10dp"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:src="@drawable/car_left"/>
+        
+        <ImageView 
+            android:id="@+id/img_rental_car"
+            style="@style/layout_wrap_all"
+            android:layout_centerInParent="true"
+            android:src="@drawable/home_car"/>
+        <ImageView 
+            android:id="@+id/img_rental_right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            style="@style/layout_wrap_all"
+            android:src="@drawable/car_right"/>
+    </RelativeLayout>
+    
+    <LinearLayout 
+        style="@style/layout_wrap_all"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_40dp"
+        android:orientation="horizontal">
+        <TextView 
+            android:id="@+id/tv_car_name"
+            style="@style/layout_wrap_all"
+            android:text="凯迪拉克XTS"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/text_3"
+            android:textSize="@dimen/text_h2"/>
+        <TextView 
+            android:id="@+id/tv_car_plate"
+            style="@style/layout_wrap_all"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:text="苏E.66666"
+            android:textColor="@color/text_9"
+            android:textSize="@dimen/text_h4"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+        style="@style/layout_wrap_all"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:orientation="horizontal">
+        <TextView 
+            android:id="@+id/tv_car_deposit"
+            style="@style/layout_wrap_all"
+            android:text="押金：￥1000"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/text_9"
+            android:textSize="@dimen/text_h4"/>
+        <TextView 
+            android:id="@+id/tv_car_daily"
+            style="@style/layout_wrap_all"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:text="日租：￥160/天"
+            android:textColor="@color/text_9"
+            android:textSize="@dimen/text_h4"/>
+    </LinearLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginLeft="@dimen/dimen_40dp"
+        android:layout_marginRight="@dimen/dimen_40dp"
+        android:background="@color/line_bg"/>
+    
+    <ImageView 
+        android:id="@+id/img_plcae_order"
+        style="@style/layout_wrap_all"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:src="@drawable/place_order"/>
+
+</LinearLayout>

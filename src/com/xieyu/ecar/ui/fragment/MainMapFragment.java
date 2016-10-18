@@ -11,14 +11,13 @@ import org.xutils.http.RequestParams;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -30,7 +29,6 @@ import com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener;
 import com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
@@ -56,7 +54,6 @@ import com.xieyu.ecar.ui.BookCarDetailActivity;
 import com.xieyu.ecar.ui.BookChargeDetailActivity;
 import com.xieyu.ecar.ui.MainActivity;
 import com.xieyu.ecar.ui.ZBarScanActivity;
-import com.xieyu.ecar.util.StringUtil;
 
 import de.greenrobot.event.EventBus;
 
@@ -66,7 +63,7 @@ import de.greenrobot.event.EventBus;
  * @author wangfeng
  *
  */
-public class MainMapFragment extends SuperFragment
+public class MainMapFragment extends SuperFragment implements OnClickListener
 {
 
 	@V
@@ -79,6 +76,16 @@ public class MainMapFragment extends SuperFragment
 	private ImageButton map_top_left_btn;
 	@V
 	private ImageView dingwei_image;
+	
+	//下单弹框
+	@V
+	private View ll_dialog, v_dialog ;
+	@V
+	private TextView tv_rental_address, tv_rental_parking, tv_car_name,
+    tv_car_plate, tv_car_deposit, tv_car_daily;
+	@V
+    private ImageView img_plcae_order, img_rental_left, img_rental_car, 
+    img_rental_right;
 
 	private BaiduMap baiduMap;
 	private BitmapDescriptor bitmap;
@@ -91,6 +98,7 @@ public class MainMapFragment extends SuperFragment
 	BitmapDescriptor mCurrentMarker;
 	boolean isFirstLoc = true;// 是否首次定位
 	boolean isLocal = false;
+	int position;
 
 	@Override
 	@Nullable
@@ -123,7 +131,7 @@ public class MainMapFragment extends SuperFragment
 				return;
 			}
 			MyLocationData locData = new MyLocationData.Builder().accuracy(location.getRadius())
-			// 此处设置开发者获取到的方向信息，顺时针0-360
+					// 此处设置开发者获取到的方向信息，顺时针0-360
 					.direction(100).latitude(location.getLatitude()).longitude(location.getLongitude()).build();
 			baiduMap.setMyLocationData(locData);
 			if (isFirstLoc || isLocal)
@@ -146,6 +154,11 @@ public class MainMapFragment extends SuperFragment
 		map_top_left_btn.setOnClickListener(this);
 		map_top_right_btn.setOnClickListener(this);
 		dingwei_image.setOnClickListener(this);
+		
+		img_rental_left.setOnClickListener(this);
+        img_rental_right.setOnClickListener(this);
+        img_plcae_order.setOnClickListener(this);
+        v_dialog.setOnClickListener(this);
 
 		isFirstLoc = true;
 		mActivity.setGesture(false);
@@ -167,23 +180,23 @@ public class MainMapFragment extends SuperFragment
 		mLocClient.setLocOption(option);
 		mLocClient.start();
 		// getData();
-//		getSites();
+		//		getSites();
 		baiduMap.setOnMarkerClickListener(new OnMarkerClickListener()
 		{
 
 			@Override
 			public boolean onMarkerClick(Marker marker)
 			{
-
-				final int position = marker.getZIndex();
-//				 final Sites mpo; //= mSites.get(position);
-//				 final String type ;//= mpo.getSiteType();
+				
+				position = marker.getZIndex();
+				//				 final Sites mpo; //= mSites.get(position);
+				//				 final String type ;//= mpo.getSiteType();
 				//这里存在一个安全隐患，虽然说了marker一般不会变，这里更新数据，但是不排除在你进去的时候marker会增加一个
 				//但这是需求
 				((BaseActivity) getActivity()).showLoadingDialog("");
 				RequestParams params = new RequestParams(BaseConstants.getSites);
 				x.http().post(params, new CommonCallback<String>()
-				{
+						{
 					@Override
 					public void onSuccess(String result)
 					{
@@ -195,87 +208,13 @@ public class MainMapFragment extends SuperFragment
 
 								Gson gson = new Gson();
 								mSites = gson.fromJson(jsonObject.getJSONArray("objectResult").toString(), new TypeToken<List<Sites>>()
-								{
-								}.getType());
-
-								 final Sites mpo = mSites.get(position);
-								 final String type = mpo.getSiteType();
-								
-								// 创建InfoWindow展示的view
-								View view = LayoutInflater.from(getActivity()).inflate(R.layout.map_pop, null);
-								TextView mPoiName = (TextView) view.findViewById(R.id.poi_name);
-								TextView mPoiAddress = (TextView) view.findViewById(R.id.poi_pop_address);
-								TextView mPoipileNum = (TextView) view.findViewById(R.id.poi_pop_pilenum);
-								TextView mPoiTrickNum = (TextView) view.findViewById(R.id.poi_pop_tricklenum);
-								Button mPoipileBtn = (Button) view.findViewById(R.id.btn_yuyue);
-								LinearLayout mPoiPileLayout = (LinearLayout) view.findViewById(R.id.pile_layout);
-								LinearLayout mPoiCarLayout = (LinearLayout) view.findViewById(R.id.car_layout);
-								TextView mPoiCarNum = (TextView) view.findViewById(R.id.poi_pop_carNum);
-								TextView mPoiCarSaleTime = (TextView) view.findViewById(R.id.poi_pop_saletime);
-								TextView mPoiCarState = (TextView) view.findViewById(R.id.poi_pop_state);
-								ImageView mPoiImage = (ImageView) view.findViewById(R.id.poi_pop_image);
-
-								mPoiName.setText(mpo.getName());
-								mPoiAddress.setText(mpo.getPositionName());
-
-								if ("Piles".equals(type))
-								{// 充电
-									mPoiImage.setImageResource(R.drawable.charge);
-									mPoiPileLayout.setVisibility(View.VISIBLE);
-									mPoiCarLayout.setVisibility(View.GONE);
-									mPoipileNum.setText(mpo.getPilesSum() + "");
-									mPoiTrickNum.setText(StringUtil.getPilesCategrey(mpo.getPilesCategoryForShow()));
-
-								} else if ("Car".equals(type))
-								{// 租车
-									mPoiImage.setImageResource(R.drawable.car);
-									mPoiPileLayout.setVisibility(View.GONE);
-									mPoiCarLayout.setVisibility(View.VISIBLE);
-									mPoiCarNum.setText(mpo.getCarSum() + "");
-									mPoiCarSaleTime.setText(mpo.getWorkBeginTime() + "-" + mpo.getWordEndTime());
-								}
-
-								mPoipileBtn.setOnClickListener(new OnClickListener()
-								{
-									@Override
-									public void onClick(View arg0)
-									{
-
-										Intent intent;
-										if ("Piles".equals(type))
 										{
-											intent = new Intent(getActivity(), BookChargeDetailActivity.class);
-											intent.putExtra("mpo", mpo);
-											mActivity.startActivity(intent, true);
-										} else
-										{
-											intent = new Intent(getActivity(), BookCarDetailActivity.class);
-											intent.putExtra("type", "map");
-											intent.putExtra("mpo", mpo);
-											mActivity.startActivity(intent, true);
-										}
+										}.getType());
+								ll_dialog.setVisibility(View.VISIBLE);
+								final Sites mpo = mSites.get(position);
+								tv_rental_address.setText(mpo.getPositionName());
+						        tv_rental_parking.setText(Html.fromHtml("剩余车辆：<font color=\"#009E3C\">"+ mpo.getCarPortNum() +"</font>  专用停车位：<font color=\"#009E3C\">"+ mpo.getCarSum() +"</font>"));
 
-									}
-								});
-
-								view.setOnClickListener(new OnClickListener()
-								{
-
-									@Override
-									public void onClick(View arg0)
-									{
-										baiduMap.hideInfoWindow();
-									}
-								});
-
-								// 定义用于显示该InfoWindow的坐标点
-								LatLng pt = new LatLng(Double.parseDouble(mpo.getPositionY()), Double.parseDouble(mpo.getPositionX()));
-								// 创建InfoWindow , 传入 view， 地理坐标， y 轴偏移量
-								InfoWindow mInfoWindow = new InfoWindow(view, pt, -60);
-								// 显示InfoWindow
-								baiduMap.showInfoWindow(mInfoWindow);
-								
-								
 							} else
 							{
 								App.showShortToast(jsonObject.getString("resultMes"));
@@ -301,89 +240,7 @@ public class MainMapFragment extends SuperFragment
 					{
 						((BaseActivity) getActivity()).dismissLoadingDialog();
 					}
-				});
-				
-				
-
-				// // 将地图移到点附近
-				// LatLng ll = new LatLng(Double.parseDouble(mpo.getPositionY())
-				// + 0.03, Double.parseDouble(mpo.getPositionX()));
-				// MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
-				// baiduMap.animateMapStatus(u);
-
-//				// 创建InfoWindow展示的view
-//				View view = LayoutInflater.from(getActivity()).inflate(R.layout.map_pop, null);
-//				TextView mPoiName = (TextView) view.findViewById(R.id.poi_name);
-//				TextView mPoiAddress = (TextView) view.findViewById(R.id.poi_pop_address);
-//				TextView mPoipileNum = (TextView) view.findViewById(R.id.poi_pop_pilenum);
-//				TextView mPoiTrickNum = (TextView) view.findViewById(R.id.poi_pop_tricklenum);
-//				Button mPoipileBtn = (Button) view.findViewById(R.id.btn_yuyue);
-//				LinearLayout mPoiPileLayout = (LinearLayout) view.findViewById(R.id.pile_layout);
-//				LinearLayout mPoiCarLayout = (LinearLayout) view.findViewById(R.id.car_layout);
-//				TextView mPoiCarNum = (TextView) view.findViewById(R.id.poi_pop_carNum);
-//				TextView mPoiCarSaleTime = (TextView) view.findViewById(R.id.poi_pop_saletime);
-//				TextView mPoiCarState = (TextView) view.findViewById(R.id.poi_pop_state);
-//				ImageView mPoiImage = (ImageView) view.findViewById(R.id.poi_pop_image);
-//
-//				mPoiName.setText(mpo.getName());
-//				mPoiAddress.setText(mpo.getPositionName());
-//
-//				if ("Piles".equals(type))
-//				{// 充电
-//					mPoiImage.setImageResource(R.drawable.charge);
-//					mPoiPileLayout.setVisibility(View.VISIBLE);
-//					mPoiCarLayout.setVisibility(View.GONE);
-//					mPoipileNum.setText(mpo.getPilesSum() + "");
-//					mPoiTrickNum.setText(StringUtil.getPilesCategrey(mpo.getPilesCategoryForShow()));
-//
-//				} else if ("Car".equals(type))
-//				{// 租车
-//					mPoiImage.setImageResource(R.drawable.car);
-//					mPoiPileLayout.setVisibility(View.GONE);
-//					mPoiCarLayout.setVisibility(View.VISIBLE);
-//					mPoiCarNum.setText(mpo.getCarSum() + "");
-//					mPoiCarSaleTime.setText(mpo.getWorkBeginTime() + "-" + mpo.getWordEndTime());
-//				}
-//
-//				mPoipileBtn.setOnClickListener(new OnClickListener()
-//				{
-//					@Override
-//					public void onClick(View arg0)
-//					{
-//
-//						Intent intent;
-//						if ("Piles".equals(type))
-//						{
-//							intent = new Intent(getActivity(), BookChargeDetailActivity.class);
-//							intent.putExtra("mpo", mpo);
-//							mActivity.startActivity(intent, true);
-//						} else
-//						{
-//							intent = new Intent(getActivity(), BookCarDetailActivity.class);
-//							intent.putExtra("type", "map");
-//							intent.putExtra("mpo", mpo);
-//							mActivity.startActivity(intent, true);
-//						}
-//
-//					}
-//				});
-//
-//				view.setOnClickListener(new OnClickListener()
-//				{
-//
-//					@Override
-//					public void onClick(View arg0)
-//					{
-//						baiduMap.hideInfoWindow();
-//					}
-//				});
-//
-//				// 定义用于显示该InfoWindow的坐标点
-//				LatLng pt = new LatLng(Double.parseDouble(mpo.getPositionY()), Double.parseDouble(mpo.getPositionX()));
-//				// 创建InfoWindow , 传入 view， 地理坐标， y 轴偏移量
-//				InfoWindow mInfoWindow = new InfoWindow(view, pt, -60);
-//				// 显示InfoWindow
-//				baiduMap.showInfoWindow(mInfoWindow);
+						});
 				return true;
 			}
 		});
@@ -412,7 +269,7 @@ public class MainMapFragment extends SuperFragment
 	{
 		RequestParams params = new RequestParams(BaseConstants.getSites);
 		x.http().post(params, new CommonCallback<String>()
-		{
+				{
 			@Override
 			public void onSuccess(String result)
 			{
@@ -424,11 +281,11 @@ public class MainMapFragment extends SuperFragment
 
 						Gson gson = new Gson();
 						mSites = gson.fromJson(jsonObject.getJSONArray("objectResult").toString(), new TypeToken<List<Sites>>()
-						{
-						}.getType());
+								{
+								}.getType());
 
-							addPoint(mSites);	
-						
+						addPoint(mSites);	
+
 					} else
 					{
 						App.showShortToast(jsonObject.getString("resultMes"));
@@ -459,7 +316,7 @@ public class MainMapFragment extends SuperFragment
 
 			}
 
-		});
+				});
 
 	}
 
@@ -495,7 +352,7 @@ public class MainMapFragment extends SuperFragment
 		}
 
 	}
-	
+
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -513,7 +370,7 @@ public class MainMapFragment extends SuperFragment
 		main_map = null;
 		super.onDestroy();
 	}
-	
+
 	public void onEvent(EventMessage message){
 		switch (message) {
 		case updateMap:
@@ -549,6 +406,33 @@ public class MainMapFragment extends SuperFragment
 
 		case R.id.dingwei_image:
 			isLocal = true;
+			break;
+		case R.id.img_rental_left:
+			
+			break;
+		case R.id.img_rental_right:
+			
+			break;
+		case R.id.v_dialog:
+			ll_dialog.setVisibility(View.GONE);
+			break;
+		case R.id.img_plcae_order:
+			ll_dialog.setVisibility(View.GONE);
+			Sites mpo = mSites.get(position);
+			String type = mpo.getSiteType();
+			Intent intent;
+			if ("Piles".equals(type))
+			{
+				intent = new Intent(getActivity(), BookChargeDetailActivity.class);
+				intent.putExtra("mpo", mpo);
+				mActivity.startActivity(intent, true);
+			} else
+			{
+				intent = new Intent(getActivity(), BookCarDetailActivity.class);
+				intent.putExtra("type", "map");
+				intent.putExtra("mpo", mpo);
+				mActivity.startActivity(intent, true);
+			}
 			break;
 
 		default:

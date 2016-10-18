@@ -105,5 +105,5 @@
         <item name="android:windowEnterAnimation">@anim/push_top_in</item>
         <item name="android:windowExitAnimation">@anim/push_top_out</item>
     </style>  
-
+    
 </resources>
