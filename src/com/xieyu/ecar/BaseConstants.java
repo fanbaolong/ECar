@@ -10,9 +10,9 @@ public final class BaseConstants
 {
 	/** 域名 */
 	// http://192.168.18.31:8080/ECar/
-//	public static final String API = "http://112.80.51.93:8080";// 外部网
-//	public static final String API = "http://www.lvnengzuche.com";// 正式
-	 public static final String API = "http://172.22.207.4:8002/ECar";// 内部网
+	//	public static final String API = "http://112.80.51.93:8080";// 外部网
+	public static final String API = "http://www.lvnengzuche.com";// 正式
+	//	 public static final String API = "http://172.22.207.4:8002/ECar";// 内部网
 	public static final String SERVICE = "/Service";// /ECar
 	/** 测试版本下载地址（fir） */
 	public static final String DOWNLOAD_URL_ON_FIR = "http://fir.im/lvneng";
