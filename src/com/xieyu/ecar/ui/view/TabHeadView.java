@@ -15,6 +15,8 @@ import com.xieyu.ecar.R;
  */
 public class TabHeadView extends RelativeLayout
 {
+	
+	private Context context;
 
 	public RelativeLayout getTitlebg()
 	{
@@ -31,12 +33,14 @@ public class TabHeadView extends RelativeLayout
 	public TabHeadView(Context context)
 	{
 		super(context);
+		this.context = context;
 		init();
 	}
 
 	public TabHeadView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
+		this.context = context;
 		init();
 	}
 
@@ -47,6 +51,7 @@ public class TabHeadView extends RelativeLayout
 
 	private ViewGroup mViewContainer;
 	private ImageButton mLeftButton;
+	private TextView titlebar_left_title;
 	private TextView mRightButton;
 
 	public TextView getTitle()
@@ -61,6 +66,7 @@ public class TabHeadView extends RelativeLayout
 	{
 		mViewContainer = (ViewGroup) View.inflate(getContext(), R.layout.table_head_titlebar, this);
 		mLeftButton = (ImageButton) mViewContainer.findViewById(R.id.titlebar_left_btn);
+		titlebar_left_title = (TextView) mViewContainer.findViewById(R.id.titlebar_left_title);
 		mRightButton = (TextView) mViewContainer.findViewById(R.id.titlebar_right_btn);
 		mTitle = (TextView) mViewContainer.findViewById(R.id.titlebar_title);
 		titlebg = (RelativeLayout) mViewContainer.findViewById(R.id.titlebar_content);
@@ -92,5 +98,9 @@ public class TabHeadView extends RelativeLayout
 	{
 		mRightButton.setVisibility(View.VISIBLE);
 		return mRightButton;
+	}
+	
+	public void setLeftTitle(String leftTitle){
+		titlebar_left_title.setText(leftTitle);
 	}
 }

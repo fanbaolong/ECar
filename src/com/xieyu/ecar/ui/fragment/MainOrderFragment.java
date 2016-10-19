@@ -30,6 +30,7 @@ import com.xieyu.ecar.bean.EventMessage;
 import com.xieyu.ecar.bean.OrderPile;
 import com.xieyu.ecar.injector.Injector;
 import com.xieyu.ecar.injector.V;
+import com.xieyu.ecar.ui.MainActivity;
 import com.xieyu.ecar.ui.OrderCarDetailActivity;
 import com.xieyu.ecar.util.PreferenceUtil;
 

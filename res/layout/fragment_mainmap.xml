@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebar_default_height1"
         android:layout_marginTop="20dp"
-        android:background="@color/holo_title" >
+        android:background="@color/white" >
 
         <ImageButton
             android:id="@+id/map_top_left_btn"
@@ -32,7 +32,7 @@
             android:lines="1"
             android:maxWidth="200dp"
             android:text="@string/map"
-            android:textColor="#FFF"
+            android:textColor="@color/text_3"
             android:textSize="@dimen/titlebar_title_textSize" />
 
         <ImageView

@@ -17,7 +17,7 @@ public class BackableTitleBarActivity extends SimpleTitleBarActivity
 	@Override
 	protected void onTitleBarCreated(SimpleTitleBar titleBar)
 	{
-		titleBar.setLeftButton(R.drawable.ic_titlebar_back) // back_ico_one
+		titleBar.setLeftButton(R.drawable.car_left) // back_ico_one
 				.setOnLeftButtonClickListener(new View.OnClickListener()
 				{
 					@Override

@@ -226,7 +226,13 @@ public class MainFragment extends SuperFragment
 					}
 					setSelectView(i);
 					fragment = i;
-					headView_main.getTitle().setText(TITLES[i]);
+					if (i == 1) {
+						headView_main.setLeftTitle("我的订单");
+						headView_main.getTitle().setText("");
+					}else {
+						headView_main.getTitle().setText(TITLES[i]);
+						headView_main.setLeftTitle("");
+					}
 				}
 
 				@Override
@@ -335,7 +341,7 @@ public class MainFragment extends SuperFragment
 			private void setUnSelect(int imgId)
 			{
 				imageView.setImageResource(imgId);
-				textView.setTextColor(getResources().getColor(R.color.white));
+				textView.setTextColor(getResources().getColor(R.color.text_3));
 				// layout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 			}
 

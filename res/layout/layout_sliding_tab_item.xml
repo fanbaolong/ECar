@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimen_50dp"
-    android:background="@color/holo_title"
+    android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical" >
 
@@ -29,7 +29,7 @@
             android:background="@drawable/round_image"
             android:gravity="center"
             android:text="3"
-            android:textColor="@color/white" />
+            android:textColor="@color/red" />
     </RelativeLayout>
 
     <TextView
@@ -37,7 +37,7 @@
         style="@style/layout_wrap_all"
         android:gravity="center"
         android:text="我的"
-        android:textColor="@color/white"
+        android:textColor="@color/text_3"
         android:textSize="@dimen/dimen_15dp" />
 
 </LinearLayout>

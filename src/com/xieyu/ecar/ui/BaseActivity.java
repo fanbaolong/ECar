@@ -49,6 +49,9 @@ public class BaseActivity extends FragmentActivity implements GestureDetector.On
 	private boolean gesture = true;
 	private boolean startAnim = true;
 
+	// 创建状态栏的管理实例
+	SystemBarTintManager tintManager;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -64,14 +67,30 @@ public class BaseActivity extends FragmentActivity implements GestureDetector.On
 			setTranslucentStatus(context, true);
 		}
 		// 创建状态栏的管理实例
-		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager = new SystemBarTintManager(this);
 		// 激活状态栏设置
 		tintManager.setStatusBarTintEnabled(true);
 		// 激活导航栏设置
 		tintManager.setNavigationBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.color.holo_title);
+		tintManager.setStatusBarTintResource(R.color.white);
 
 		JPushInterface.init(this);
+	}
+	
+	public void setColor(){
+		if (tintManager == null) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+			{
+				setTranslucentStatus(context, true);
+			}
+			// 创建状态栏的管理实例
+			tintManager = new SystemBarTintManager(this);
+			// 激活状态栏设置
+			tintManager.setStatusBarTintEnabled(true);
+			// 激活导航栏设置
+			tintManager.setNavigationBarTintEnabled(true);
+		}
+		tintManager.setStatusBarTintResource(R.color.transparent32);
 	}
 
 	/**

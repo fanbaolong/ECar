@@ -30,6 +30,7 @@
     <!-- 点击字体选中颜色 -->
     <color name="bottom_text">#076b22</color>
     <color name="transparent">#00000000</color>
+    <color name="transparent32">#32000000</color>
     <color name="btn_login_normal">#27CC42</color>
     <color name="btn_login_pressed">#2CB044</color>
     <color name="txt_code_pressed">#4F9228</color>

@@ -51,6 +51,7 @@ import com.xieyu.ecar.injector.Injector;
 import com.xieyu.ecar.injector.V;
 import com.xieyu.ecar.ui.BaseActivity;
 import com.xieyu.ecar.ui.BookCarDetailActivity;
+import com.xieyu.ecar.ui.BookCarInfoActivity;
 import com.xieyu.ecar.ui.BookChargeDetailActivity;
 import com.xieyu.ecar.ui.ControlActivity;
 import com.xieyu.ecar.ui.MainActivity;
@@ -155,6 +156,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 		map_top_left_btn.setOnClickListener(this);
 		map_top_right_btn.setOnClickListener(this);
 		dingwei_image.setOnClickListener(this);
+		img_key.setOnClickListener(this);
 		
 		img_rental_left.setOnClickListener(this);
         img_rental_right.setOnClickListener(this);
@@ -432,7 +434,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 				mActivity.startActivity(intent, true);
 			} else
 			{
-				intent = new Intent(getActivity(), BookCarDetailActivity.class);
+				intent = new Intent(getActivity(), BookCarInfoActivity.class);
 				intent.putExtra("type", "map");
 				intent.putExtra("mpo", mpo);
 				mActivity.startActivity(intent, true);
