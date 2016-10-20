@@ -11,7 +11,8 @@ public final class BaseConstants
 	/** 域名 */
 	// http://192.168.18.31:8080/ECar/
 	//	public static final String API = "http://112.80.51.93:8080";// 外部网
-	public static final String API = "http://www.lvnengzuche.com";// 正式
+	//	public static final String API = "http://www.lvnengzuche.com";// 正式
+	public static final String API = "http://139.224.56.207:8080/";// 测试环境
 	//	 public static final String API = "http://172.22.207.4:8002/ECar";// 内部网
 	public static final String SERVICE = "/Service";// /ECar
 	/** 测试版本下载地址（fir） */
@@ -112,5 +113,15 @@ public final class BaseConstants
 	public static final String saveDriverLicense = API + SERVICE + "/saveDriverLicense";
 	/* 编辑保存个人信息 */
 	public static final String saveInfo = API + SERVICE + "/saveInfo";
+	/* 开门 */
+	public static final String openDoor = API + SERVICE + "/openDoor";
+	/* 关门*/
+	public static final String clsoeDoor = API + SERVICE + "/clsoeDoor";
+	/* 鸣笛 */
+	public static final String lookCar = API + SERVICE + "/lookCar";
+	/* 获取某个网点可用的车辆（用于选择下单车辆） */
+	public static final String getFreeCarBySite = API + SERVICE + "/getFreeCarBySite";
+	/* 是否存在可控车辆 */
+	public static final String getCurrentCar = API + SERVICE + "/getCurrentCar";
 
 }

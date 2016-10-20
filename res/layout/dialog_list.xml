@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+    <ImageView 
+        android:id="@+id/img_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/close"/>
+    
+    <TextView 
+        android:id="@+id/tv_title"
+        style="@style/layout_wrap_all"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/img_close"
+        android:text="选择付款账户"
+        android:textColor="@color/text_3"
+        android:textSize="@dimen/text_h2"/>
+    
+    <View 
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_bg"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_below="@id/tv_title"/>
+    
+    <ListView 
+        android:id="@+id/lv_list"
+        style="@style/layout_match_wrap"
+        android:divider="@null"
+        android:layout_below="@id/v_line"
+        />
+
+</RelativeLayout>

@@ -11,7 +11,7 @@ import org.xutils.http.RequestParams;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,12 +50,12 @@ import com.xieyu.ecar.bean.Sites;
 import com.xieyu.ecar.injector.Injector;
 import com.xieyu.ecar.injector.V;
 import com.xieyu.ecar.ui.BaseActivity;
-import com.xieyu.ecar.ui.BookCarDetailActivity;
 import com.xieyu.ecar.ui.BookCarInfoActivity;
 import com.xieyu.ecar.ui.BookChargeDetailActivity;
 import com.xieyu.ecar.ui.ControlActivity;
 import com.xieyu.ecar.ui.MainActivity;
 import com.xieyu.ecar.ui.ZBarScanActivity;
+import com.xieyu.ecar.util.PreferenceUtil;
 
 import de.greenrobot.event.EventBus;
 
@@ -63,10 +63,9 @@ import de.greenrobot.event.EventBus;
  * 首页地图
  * 
  * @author wangfeng
- *
+ * 
  */
-public class MainMapFragment extends SuperFragment implements OnClickListener
-{
+public class MainMapFragment extends SuperFragment implements OnClickListener {
 
 	@V
 	private MapView main_map;
@@ -78,16 +77,16 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 	private ImageButton map_top_left_btn;
 	@V
 	private ImageView dingwei_image, img_key;
-	
-	//下单弹框
+
+	// 下单弹框
 	@V
-	private View ll_dialog, v_dialog ;
+	private View ll_dialog, v_dialog;
 	@V
 	private TextView tv_rental_address, tv_rental_parking, tv_car_name,
-    tv_car_plate, tv_car_deposit, tv_car_daily;
+			tv_car_plate, tv_car_deposit, tv_car_daily;
 	@V
-    private ImageView img_plcae_order, img_rental_left, img_rental_car, 
-    img_rental_right;
+	private ImageView img_plcae_order, img_rental_left, img_rental_car,
+			img_rental_right;
 
 	private BaiduMap baiduMap;
 	private BitmapDescriptor bitmap;
@@ -104,64 +103,79 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 
 	@Override
 	@Nullable
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-	{
+	public View onCreateView(LayoutInflater inflater,
+			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.fragment_mainmap, container, false);
 	}
 
 	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState)
-	{
+	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		Injector.getInstance().inject(getActivity(), this, view);
 		EventBus.getDefault().register(this);
 		setView();
+		getCurrentCar();
+	}
+
+	/** 获取是否存在可控车辆 */
+	private void getCurrentCar() {
+		RequestParams params = new RequestParams(BaseConstants.getCurrentCar);
+		params.addBodyParameter("sessionId", PreferenceUtil.getString(
+				getActivity(), BaseConstants.prefre.SessionId));
+		requestPost(false, "", BaseConstants.getCurrentCar, params);
+	}
+	
+	@Override
+	public void responseSuccess(String result, String msg, String tag) {
+		super.responseSuccess(result, msg, tag);
+		if (tag.equals(BaseConstants.getCurrentCar)) {
+			Log.i("getCurrentCar", result);
+		}else if (tag.equals(BaseConstants.getFreeCarBySite)) {
+			Log.i("getFreeCarBySite", result);
+		}
 	}
 
 	/**
 	 * 定位SDK监听函数
 	 */
-	public class MyLocationListenner implements BDLocationListener
-	{
+	public class MyLocationListenner implements BDLocationListener {
 
 		@Override
-		public void onReceiveLocation(BDLocation location)
-		{
+		public void onReceiveLocation(BDLocation location) {
 			// map view 销毁后不在处理新接收的位置
-			if (location == null || main_map == null)
-			{
+			if (location == null || main_map == null) {
 				return;
 			}
-			MyLocationData locData = new MyLocationData.Builder().accuracy(location.getRadius())
+			MyLocationData locData = new MyLocationData.Builder()
+					.accuracy(location.getRadius())
 					// 此处设置开发者获取到的方向信息，顺时针0-360
-					.direction(100).latitude(location.getLatitude()).longitude(location.getLongitude()).build();
+					.direction(100).latitude(location.getLatitude())
+					.longitude(location.getLongitude()).build();
 			baiduMap.setMyLocationData(locData);
-			if (isFirstLoc || isLocal)
-			{
+			if (isFirstLoc || isLocal) {
 				isLocal = false;
 				isFirstLoc = false;
-				LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
+				LatLng ll = new LatLng(location.getLatitude(),
+						location.getLongitude());
 				MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
 				baiduMap.animateMapStatus(u);
 			}
 		}
 
-		public void onReceivePoi(BDLocation poiLocation)
-		{
+		public void onReceivePoi(BDLocation poiLocation) {
 		}
 	}
 
-	private void setView()
-	{
+	private void setView() {
 		map_top_left_btn.setOnClickListener(this);
 		map_top_right_btn.setOnClickListener(this);
 		dingwei_image.setOnClickListener(this);
 		img_key.setOnClickListener(this);
-		
+
 		img_rental_left.setOnClickListener(this);
-        img_rental_right.setOnClickListener(this);
-        img_plcae_order.setOnClickListener(this);
-        v_dialog.setOnClickListener(this);
+		img_rental_right.setOnClickListener(this);
+		img_plcae_order.setOnClickListener(this);
+		v_dialog.setOnClickListener(this);
 
 		isFirstLoc = true;
 		mActivity.setGesture(false);
@@ -170,7 +184,8 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 		MapStatusUpdate sUpdate = MapStatusUpdateFactory.zoomTo(14.0f);
 		baiduMap.setMapStatus(sUpdate);
 
-		baiduMap.setMyLocationConfigeration(new MyLocationConfiguration(LocationMode.NORMAL, true, mCurrentMarker));
+		baiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
+				LocationMode.NORMAL, true, mCurrentMarker));
 		// 开启定位图层
 		baiduMap.setMyLocationEnabled(true);
 		// 定位初始化
@@ -183,173 +198,162 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 		mLocClient.setLocOption(option);
 		mLocClient.start();
 		// getData();
-		//		getSites();
-		baiduMap.setOnMarkerClickListener(new OnMarkerClickListener()
-		{
+		// getSites();
+		baiduMap.setOnMarkerClickListener(new OnMarkerClickListener() {
 
 			@Override
-			public boolean onMarkerClick(Marker marker)
-			{
-				
+			public boolean onMarkerClick(Marker marker) {
+
 				position = marker.getZIndex();
-				//				 final Sites mpo; //= mSites.get(position);
-				//				 final String type ;//= mpo.getSiteType();
-				//这里存在一个安全隐患，虽然说了marker一般不会变，这里更新数据，但是不排除在你进去的时候marker会增加一个
-				//但这是需求
+				// final Sites mpo; //= mSites.get(position);
+				// final String type ;//= mpo.getSiteType();
+				// 这里存在一个安全隐患，虽然说了marker一般不会变，这里更新数据，但是不排除在你进去的时候marker会增加一个
+				// 但这是需求
 				((BaseActivity) getActivity()).showLoadingDialog("");
 				RequestParams params = new RequestParams(BaseConstants.getSites);
-				x.http().post(params, new CommonCallback<String>()
-						{
+				x.http().post(params, new CommonCallback<String>() {
 					@Override
-					public void onSuccess(String result)
-					{
-						try
-						{
+					public void onSuccess(String result) {
+						try {
 							JSONObject jsonObject = new JSONObject(result);
-							if (jsonObject.getString("resultType").equals("OK"))
-							{
+							if (jsonObject.getString("resultType").equals("OK")) {
 
 								Gson gson = new Gson();
-								mSites = gson.fromJson(jsonObject.getJSONArray("objectResult").toString(), new TypeToken<List<Sites>>()
-										{
+								mSites = gson.fromJson(
+										jsonObject.getJSONArray("objectResult")
+												.toString(),
+										new TypeToken<List<Sites>>() {
 										}.getType());
-								ll_dialog.setVisibility(View.VISIBLE);
-								final Sites mpo = mSites.get(position);
-								tv_rental_address.setText(mpo.getPositionName());
-						        tv_rental_parking.setText(Html.fromHtml("剩余车辆：<font color=\"#009E3C\">"+ mpo.getCarPortNum() +"</font>  专用停车位：<font color=\"#009E3C\">"+ mpo.getCarSum() +"</font>"));
-
-							} else
-							{
-								App.showShortToast(jsonObject.getString("resultMes"));
+								getFreeCarBySite();
+							} else {
+								App.showShortToast(jsonObject
+										.getString("resultMes"));
 							}
 
-						} catch (Exception e)
-						{
+						} catch (Exception e) {
 							e.printStackTrace();
 						}
 
 					}
 
 					@Override
-					public void onError(Throwable ex, boolean isOnCallback)
-					{ }
+					public void onError(Throwable ex, boolean isOnCallback) {
+					}
 
 					@Override
-					public void onCancelled(CancelledException cex)
-					{
+					public void onCancelled(CancelledException cex) {
 					}
+
 					@Override
-					public void onFinished()
-					{
+					public void onFinished() {
 						((BaseActivity) getActivity()).dismissLoadingDialog();
 					}
-						});
+				});
 				return true;
 			}
 		});
-		baiduMap.setOnMapStatusChangeListener(new OnMapStatusChangeListener()
-		{
+		baiduMap.setOnMapStatusChangeListener(new OnMapStatusChangeListener() {
 
 			@Override
-			public void onMapStatusChangeStart(MapStatus arg0)
-			{
+			public void onMapStatusChangeStart(MapStatus arg0) {
 				baiduMap.hideInfoWindow();
 			}
 
 			@Override
-			public void onMapStatusChangeFinish(MapStatus arg0)
-			{
+			public void onMapStatusChangeFinish(MapStatus arg0) {
 			}
 
 			@Override
-			public void onMapStatusChange(MapStatus arg0)
-			{
+			public void onMapStatusChange(MapStatus arg0) {
 			}
 		});
 	}
 
-	private void getSites()
-	{
+	private void getFreeCarBySite() {
+		// ll_dialog.setVisibility(View.VISIBLE);
+		Sites mpo = mSites.get(position);
+		// tv_rental_address.setText(mpo.getPositionName());
+		// tv_rental_parking.setText(Html.fromHtml("剩余车辆：<font color=\"#009E3C\">"+
+		// mpo.getCarPortNum() +"</font>  专用停车位：<font color=\"#009E3C\">"+
+		// mpo.getCarSum() +"</font>"));
+		RequestParams params = new RequestParams(BaseConstants.getFreeCarBySite);
+		params.addBodyParameter("siteId", mpo.getId() + "");
+		requestPost(true, "", BaseConstants.getFreeCarBySite, params);
+	}
+
+	private void getSites() {
 		RequestParams params = new RequestParams(BaseConstants.getSites);
-		x.http().post(params, new CommonCallback<String>()
-				{
+		x.http().post(params, new CommonCallback<String>() {
 			@Override
-			public void onSuccess(String result)
-			{
-				try
-				{
+			public void onSuccess(String result) {
+				try {
 					JSONObject jsonObject = new JSONObject(result);
-					if (jsonObject.getString("resultType").equals("OK"))
-					{
+					if (jsonObject.getString("resultType").equals("OK")) {
 
 						Gson gson = new Gson();
-						mSites = gson.fromJson(jsonObject.getJSONArray("objectResult").toString(), new TypeToken<List<Sites>>()
-								{
+						mSites = gson.fromJson(
+								jsonObject.getJSONArray("objectResult")
+										.toString(),
+								new TypeToken<List<Sites>>() {
 								}.getType());
 
-						addPoint(mSites);	
+						addPoint(mSites);
 
-					} else
-					{
+					} else {
 						App.showShortToast(jsonObject.getString("resultMes"));
 					}
 
-				} catch (Exception e)
-				{
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
 			}
 
 			@Override
-			public void onError(Throwable ex, boolean isOnCallback)
-			{
+			public void onError(Throwable ex, boolean isOnCallback) {
 
 			}
 
 			@Override
-			public void onCancelled(CancelledException cex)
-			{
+			public void onCancelled(CancelledException cex) {
 
 			}
 
 			@Override
-			public void onFinished()
-			{
+			public void onFinished() {
 
 			}
 
-				});
+		});
 
 	}
 
 	/**
 	 * 在地图上添加点
 	 */
-	private void addPoint(List<Sites> mpois)
-	{
+	private void addPoint(List<Sites> mpois) {
 		baiduMap.clear();
 		int size = mpois.size();
-		for (int i = 0; i < size; i++)
-		{
+		for (int i = 0; i < size; i++) {
 			Sites p = mpois.get(i);
-			if (p.getSiteType().equals("Piles"))
-			{
-				bitmap = BitmapDescriptorFactory.fromResource(R.drawable.dianzhuang);
-			} else if (p.getSiteType().equals("Car"))
-			{
-				bitmap = BitmapDescriptorFactory.fromResource(R.drawable.wangdain);
+			if (p.getSiteType().equals("Piles")) {
+				bitmap = BitmapDescriptorFactory
+						.fromResource(R.drawable.dianzhuang);
+			} else if (p.getSiteType().equals("Car")) {
+				bitmap = BitmapDescriptorFactory
+						.fromResource(R.drawable.wangdain);
 			}
 
-			if ("".equals(p.getPositionY()) || null == p.getPositionY())
-			{
+			if ("".equals(p.getPositionY()) || null == p.getPositionY()) {
 				continue;
 			}
 
-			LatLng llA = new LatLng(Double.parseDouble(p.getPositionY()), Double.parseDouble(p.getPositionX()));
+			LatLng llA = new LatLng(Double.parseDouble(p.getPositionY()),
+					Double.parseDouble(p.getPositionX()));
 			p.setLatLng(String.valueOf(llA));
 
-			OverlayOptions oo = new MarkerOptions().icon(bitmap).zIndex(i).position(mSites.get(i).getLatLng()).draggable(true);
+			OverlayOptions oo = new MarkerOptions().icon(bitmap).zIndex(i)
+					.position(mSites.get(i).getLatLng()).draggable(true);
 			marker = (Marker) baiduMap.addOverlay(oo);
 
 		}
@@ -363,8 +367,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 	}
 
 	@Override
-	public void onDestroy()
-	{
+	public void onDestroy() {
 		// 退出时销毁定位
 		mLocClient.stop();
 		// 关闭定位图层
@@ -374,7 +377,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 		super.onDestroy();
 	}
 
-	public void onEvent(EventMessage message){
+	public void onEvent(EventMessage message) {
 		switch (message) {
 		case updateMap:
 			getSites();
@@ -386,19 +389,15 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 	}
 
 	@Override
-	public void onClick(View v)
-	{
+	public void onClick(View v) {
 		super.onClick(v);
-		switch (v.getId())
-		{
+		switch (v.getId()) {
 		case R.id.map_top_left_btn:
 
 			MainActivity main = (MainActivity) getActivity();
-			if (main.drawer_layout.isDrawerOpen(main.mMenu_layout))
-			{
+			if (main.drawer_layout.isDrawerOpen(main.mMenu_layout)) {
 				main.drawer_layout.closeDrawer(main.mMenu_layout);
-			} else
-			{
+			} else {
 				main.drawer_layout.openDrawer(main.mMenu_layout);
 			}
 
@@ -410,14 +409,14 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 		case R.id.dingwei_image:
 			isLocal = true;
 			break;
-		case R.id.img_key://远程控制
+		case R.id.img_key:// 远程控制
 			startActivity(new Intent(getActivity(), ControlActivity.class));
 			break;
 		case R.id.img_rental_left:
-			
+
 			break;
 		case R.id.img_rental_right:
-			
+
 			break;
 		case R.id.v_dialog:
 			ll_dialog.setVisibility(View.GONE);
@@ -427,13 +426,12 @@ public class MainMapFragment extends SuperFragment implements OnClickListener
 			Sites mpo = mSites.get(position);
 			String type = mpo.getSiteType();
 			Intent intent;
-			if ("Piles".equals(type))
-			{
-				intent = new Intent(getActivity(), BookChargeDetailActivity.class);
+			if ("Piles".equals(type)) {
+				intent = new Intent(getActivity(),
+						BookChargeDetailActivity.class);
 				intent.putExtra("mpo", mpo);
 				mActivity.startActivity(intent, true);
-			} else
-			{
+			} else {
 				intent = new Intent(getActivity(), BookCarInfoActivity.class);
 				intent.putExtra("type", "map");
 				intent.putExtra("mpo", mpo);

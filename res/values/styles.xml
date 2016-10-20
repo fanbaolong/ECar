@@ -98,12 +98,23 @@
         <item name="android:backgroundDimEnabled">true</item><!-- 模糊 -->  
     </style>
     
-    
-    
     <!-- 下拉样式 -->
     <style name="TypeSelAnimationFade">
         <item name="android:windowEnterAnimation">@anim/push_top_in</item>
         <item name="android:windowExitAnimation">@anim/push_top_out</item>
     </style>  
+    
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    
+     <!-- 对话动画 -->
+    <style name="dialogWindowAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_translate_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_translate_out</item>
+    </style>
     
 </resources>

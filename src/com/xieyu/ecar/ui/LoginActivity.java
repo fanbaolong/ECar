@@ -86,7 +86,6 @@ public class LoginActivity extends SimpleTitleBarActivity
 	{
 		super.onCreate(savedInstance);
 		getTitleBar().setTitle(R.string.title_login);
-
 		String seesionId = PreferenceUtil.getString(this, BaseConstants.prefre.SessionId);
 		if (null != seesionId && !"".equals(seesionId))
 		{

@@ -20,14 +20,14 @@
             android:gravity="left|center_vertical"
             android:minWidth="40dp"
             android:textSize="@dimen/titlebar_btn_text_size" />
-        
+
         <TextView
             android:id="@+id/titlebar_left_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/titlebar_left_btn"
-            android:layout_marginLeft="@dimen/dimen_5dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:layout_toRightOf="@id/titlebar_left_btn"
             android:ellipsize="end"
             android:lines="1"
             android:maxWidth="200dp"
@@ -96,6 +96,13 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/holo_red_circle_indicator"
             android:visibility="gone" />
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line_bg" />
     </RelativeLayout>
 
 </RelativeLayout>

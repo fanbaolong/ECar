@@ -1,6 +1,10 @@
 package com.xieyu.ecar.ui;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.x;
+import org.xutils.common.Callback.CommonCallback;
+import org.xutils.http.RequestParams;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,8 +27,10 @@ import android.widget.TextView;
 import cn.jpush.android.api.JPushInterface;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.xieyu.ecar.App;
 import com.xieyu.ecar.ExitManager;
 import com.xieyu.ecar.R;
+import com.xieyu.ecar.http.HttpCallBack;
 import com.xieyu.ecar.ui.view.AbsCustomAlertDialog;
 import com.xieyu.ecar.ui.view.LoadingDialog;
 import com.xieyu.ecar.util.StringUtil;
@@ -423,5 +429,53 @@ public class BaseActivity extends FragmentActivity implements GestureDetector.On
 			Log.e("KDActivity", "showInputManager Catch error,skip it!", e);
 		}
 	}
+	
+	public void requestPost(final boolean isDialog, String dialogContent, final String tag, RequestParams params){
+		if (isDialog) {
+			showLoadingDialog(StringUtil.isNull(dialogContent));
+		}
+		x.http().post(params, new CommonCallback<String>() {
+			@Override
+			public void onSuccess(String result) {
+				JSONObject jsonObject;
+				try {
+					jsonObject = new JSONObject(result);
+					String resultType = jsonObject.getString("resultType");
+					String resultMes = jsonObject.getString("resultMes");
+					String objectResult = jsonObject.getString("objectResult");
+					if (resultType.equals("OK")) {
+						responseSuccess(objectResult, resultMes, tag);
+					}else {
+						responseFail(resultMes, tag);
+					}
+					
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
 
+			@Override
+			public void onError(Throwable ex, boolean isOnCallback) {
+			}
+
+			@Override
+			public void onCancelled(CancelledException cex) {
+			}
+
+			@Override
+			public void onFinished() {
+				if (isDialog) {
+					dismissLoadingDialog();
+				}
+			}
+		});
+	}
+
+	public void responseSuccess(String result, String msg, String tag){
+		
+	}
+	
+	public void responseFail(String msg, String tag){
+		App.showShortToast(msg);
+	}
 }
