@@ -24,11 +24,13 @@ public class CarCategory implements Serializable
 	private String remarks;
 	/** */
 	private String name;
-	/** */
+	/** 每小时租金 */
+	private String moneyTime;
+	/** 每天租金 */
 	private String moneyDay;
-	/** */
+	/** 每周租金*/
 	private String moneyWeek;
-	/** */
+	/** 每月租金*/
 	private String moneyMonth;
 	/** */
 	private int seats;
@@ -38,9 +40,9 @@ public class CarCategory implements Serializable
 	private String introduction;
 	/** */
 	private String electricType;
-	/** */
+	/** 最高时速*/
 	private String topSpeed;
-	/** */
+	/** 满电续航*/
 	private String fullElectricalEndurance;
 	/** */
 	private int electric;
@@ -113,6 +115,14 @@ public class CarCategory implements Serializable
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public String getMoneyTime() {
+		return moneyTime;
+	}
+
+	public void setMoneyTime(String moneyTime) {
+		this.moneyTime = moneyTime;
 	}
 
 	public String getMoneyDay()

@@ -82,7 +82,6 @@ public class BookCarDetailActivity extends BackableTitleBarActivity
 		type = getIntent().getStringExtra("type");
 		if ("carDetail".equals(type))
 		{
-			
 			lin_yuyue.setVisibility(View.VISIBLE);
 			mCodeCarDetail = (CodeCarDetail) getIntent().getSerializableExtra("mCarDetail");
 			mOrderPile = (OrderPile) getIntent().getSerializableExtra("orderPile");

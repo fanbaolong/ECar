@@ -11,7 +11,7 @@ import org.xutils.http.RequestParams;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,11 +42,13 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.ta.utdid2.android.utils.StringUtils;
 import com.xieyu.ecar.App;
 import com.xieyu.ecar.BaseConstants;
 import com.xieyu.ecar.R;
 import com.xieyu.ecar.bean.EventMessage;
 import com.xieyu.ecar.bean.Sites;
+import com.xieyu.ecar.bean.SitesCar;
 import com.xieyu.ecar.injector.Injector;
 import com.xieyu.ecar.injector.V;
 import com.xieyu.ecar.ui.BaseActivity;
@@ -55,6 +57,7 @@ import com.xieyu.ecar.ui.BookChargeDetailActivity;
 import com.xieyu.ecar.ui.ControlActivity;
 import com.xieyu.ecar.ui.MainActivity;
 import com.xieyu.ecar.ui.ZBarScanActivity;
+import com.xieyu.ecar.util.DialogPrompt;
 import com.xieyu.ecar.util.PreferenceUtil;
 
 import de.greenrobot.event.EventBus;
@@ -80,18 +83,21 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 
 	// 下单弹框
 	@V
-	private View ll_dialog, v_dialog;
+	private View ll_dialog, v_dialog, include_dialog;
 	@V
 	private TextView tv_rental_address, tv_rental_parking, tv_car_name,
-			tv_car_plate, tv_car_deposit, tv_car_daily;
+	tv_car_plate, tv_car_deposit, tv_car_daily;
 	@V
 	private ImageView img_plcae_order, img_rental_left, img_rental_car,
-			img_rental_right;
+	img_rental_right;
 
 	private BaiduMap baiduMap;
 	private BitmapDescriptor bitmap;
 	private Marker marker;
 	private List<Sites> mSites = new ArrayList<Sites>();
+	private List<SitesCar> sitesCars = new ArrayList<SitesCar>();
+	private int carSelect = 0;
+	private String keyString;
 
 	// 定位相关
 	LocationClient mLocClient;
@@ -124,14 +130,50 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 				getActivity(), BaseConstants.prefre.SessionId));
 		requestPost(false, "", BaseConstants.getCurrentCar, params);
 	}
-	
+
 	@Override
 	public void responseSuccess(String result, String msg, String tag) {
 		super.responseSuccess(result, msg, tag);
 		if (tag.equals(BaseConstants.getCurrentCar)) {
-			Log.i("getCurrentCar", result);
+			img_key.setImageResource(R.drawable.key_press);
 		}else if (tag.equals(BaseConstants.getFreeCarBySite)) {
-			Log.i("getFreeCarBySite", result);
+			Gson gson = new Gson();
+			sitesCars = gson.fromJson(result, new TypeToken<List<SitesCar>>() {
+			}.getType());
+			showSitesCar();
+		}
+	}
+
+	@Override
+	public void responseFail(String msg, String tag) {
+		super.responseFail(msg, tag);
+		if (tag.equals(BaseConstants.getCurrentCar)) {
+			img_key.setImageResource(R.drawable.key);
+			keyString = msg;
+		}
+	}
+
+	/**
+	 * 显示预约弹框
+	 * @param result
+	 */
+	private void showSitesCar(){
+		ll_dialog.setVisibility(View.VISIBLE);
+		tv_rental_address.setText(sitesCars.get(carSelect).getSite().getPositionName());
+		tv_rental_parking.setText(Html.fromHtml("剩余车辆：<font color=\"#009E3C\">"+
+				sitesCars.get(carSelect).getSite().getCarPortNum() +"</font>  专用停车位：<font color=\"#009E3C\">"+
+				sitesCars.get(carSelect).getSite().getCarSum() +"</font>"));
+		tv_car_plate.setText(sitesCars.get(carSelect).getLicense());
+		tv_car_name.setText(sitesCars.get(carSelect).getCarCategory().getName());
+		tv_car_daily.setText("日租：￥" + sitesCars.get(carSelect).getCarCategory().getMoneyDay() + "/天");
+		img_rental_left.setVisibility(View.VISIBLE);
+		img_rental_right.setVisibility(View.VISIBLE);
+
+		if (carSelect == 0) {
+			img_rental_left.setVisibility(View.INVISIBLE);
+		}
+		if (carSelect == sitesCars.size()-1) {
+			img_rental_right.setVisibility(View.INVISIBLE);
 		}
 	}
 
@@ -147,10 +189,10 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 				return;
 			}
 			MyLocationData locData = new MyLocationData.Builder()
-					.accuracy(location.getRadius())
-					// 此处设置开发者获取到的方向信息，顺时针0-360
-					.direction(100).latitude(location.getLatitude())
-					.longitude(location.getLongitude()).build();
+			.accuracy(location.getRadius())
+			// 此处设置开发者获取到的方向信息，顺时针0-360
+			.direction(100).latitude(location.getLatitude())
+			.longitude(location.getLongitude()).build();
 			baiduMap.setMyLocationData(locData);
 			if (isFirstLoc || isLocal) {
 				isLocal = false;
@@ -176,6 +218,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 		img_rental_right.setOnClickListener(this);
 		img_plcae_order.setOnClickListener(this);
 		v_dialog.setOnClickListener(this);
+		include_dialog.setOnClickListener(this);
 
 		isFirstLoc = true;
 		mActivity.setGesture(false);
@@ -221,7 +264,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 								Gson gson = new Gson();
 								mSites = gson.fromJson(
 										jsonObject.getJSONArray("objectResult")
-												.toString(),
+										.toString(),
 										new TypeToken<List<Sites>>() {
 										}.getType());
 								getFreeCarBySite();
@@ -270,12 +313,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 	}
 
 	private void getFreeCarBySite() {
-		// ll_dialog.setVisibility(View.VISIBLE);
 		Sites mpo = mSites.get(position);
-		// tv_rental_address.setText(mpo.getPositionName());
-		// tv_rental_parking.setText(Html.fromHtml("剩余车辆：<font color=\"#009E3C\">"+
-		// mpo.getCarPortNum() +"</font>  专用停车位：<font color=\"#009E3C\">"+
-		// mpo.getCarSum() +"</font>"));
 		RequestParams params = new RequestParams(BaseConstants.getFreeCarBySite);
 		params.addBodyParameter("siteId", mpo.getId() + "");
 		requestPost(true, "", BaseConstants.getFreeCarBySite, params);
@@ -293,7 +331,7 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 						Gson gson = new Gson();
 						mSites = gson.fromJson(
 								jsonObject.getJSONArray("objectResult")
-										.toString(),
+								.toString(),
 								new TypeToken<List<Sites>>() {
 								}.getType());
 
@@ -410,31 +448,47 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 			isLocal = true;
 			break;
 		case R.id.img_key:// 远程控制
-			startActivity(new Intent(getActivity(), ControlActivity.class));
+			if (StringUtils.isEmpty(keyString)) {
+				startActivity(new Intent(getActivity(), ControlActivity.class));
+			}else {
+				DialogPrompt dialogPrompt = new DialogPrompt(mActivity, keyString, "知道了", 1);
+				dialogPrompt.showDialog();
+
+			}
+
 			break;
 		case R.id.img_rental_left:
-
+			if (carSelect > 0) {
+				carSelect--;
+				showSitesCar();
+			}
 			break;
 		case R.id.img_rental_right:
-
+			if (carSelect < sitesCars.size()-1) {
+				carSelect++;
+				showSitesCar();
+			}
 			break;
 		case R.id.v_dialog:
 			ll_dialog.setVisibility(View.GONE);
 			break;
+		case R.id.include_dialog:
+			ll_dialog.setVisibility(View.VISIBLE);
+			break;
 		case R.id.img_plcae_order:
 			ll_dialog.setVisibility(View.GONE);
-			Sites mpo = mSites.get(position);
-			String type = mpo.getSiteType();
+			SitesCar sitesCar = sitesCars.get(carSelect);
+			String type = sitesCar.getSite().getSiteType();
 			Intent intent;
 			if ("Piles".equals(type)) {
 				intent = new Intent(getActivity(),
 						BookChargeDetailActivity.class);
-				intent.putExtra("mpo", mpo);
+				intent.putExtra("mpo", sitesCar);
 				mActivity.startActivity(intent, true);
 			} else {
 				intent = new Intent(getActivity(), BookCarInfoActivity.class);
 				intent.putExtra("type", "map");
-				intent.putExtra("mpo", mpo);
+				intent.putExtra("mpo", sitesCar);
 				mActivity.startActivity(intent, true);
 			}
 			break;

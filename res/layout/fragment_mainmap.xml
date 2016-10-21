@@ -93,6 +93,7 @@
             style="@style/layout_match_all" />
 
         <include
+            android:id="@+id/include_dialog"
             style="@style/layout_match_wrap"
             android:layout_alignParentBottom="true"
             layout="@layout/dialog_rental" />

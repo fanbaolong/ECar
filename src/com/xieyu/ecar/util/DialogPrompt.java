@@ -32,6 +32,13 @@ public class DialogPrompt extends Dialog implements OnClickListener{
         super(context);
     }
 
+    /**
+     * 1是右边，2是中间
+     * @param activity
+     * @param content
+     * @param btn
+     * @param type
+     */
     public DialogPrompt(Activity activity, String content, String btn, int type){
         super(activity, R.style.Dialog);
         this.activity = activity;
@@ -73,15 +80,15 @@ public class DialogPrompt extends Dialog implements OnClickListener{
         Display display = windowManager.getDefaultDisplay();
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.width = (int)(display.getWidth()); //设置宽度
-        lp.height = (int)(display.getHeight()*1/5);
+        lp.height = (int)(display.getHeight()*1/6);
         getWindow().setAttributes(lp);
     }
 
     private void showView(){
     	setShowBtn(tv_content, content);
-    	setShowBtn(tv_cancle, leftBtn);
+    	setShowBtn(tv_cancle, rightBtn);
     	setShowBtn(tv_login, centerBtn);
-    	setShowBtn(tv_ok, rightBtn);
+    	setShowBtn(tv_ok, leftBtn);
     }
     
     /**

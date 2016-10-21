@@ -123,5 +123,7 @@ public final class BaseConstants
 	public static final String getFreeCarBySite = API + SERVICE + "/getFreeCarBySite";
 	/* 是否存在可控车辆 */
 	public static final String getCurrentCar = API + SERVICE + "/getCurrentCar";
+	/* 下单 */
+	public static final String sendOrder = API + SERVICE + "/sendOrder";
 
 }

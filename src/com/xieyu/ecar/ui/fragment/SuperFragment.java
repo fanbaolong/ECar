@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.xieyu.ecar.App;
+import com.xieyu.ecar.BaseConstants;
 import com.xieyu.ecar.ui.BaseActivity;
 import com.xieyu.ecar.util.StringUtil;
 
@@ -34,6 +35,14 @@ public class SuperFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+	}
+	
+	public void requestPost(final String tag, RequestParams params){
+		requestPost(false, "", tag, params);
+	}
+	
+	public void requestPost(final boolean isDialog, final String tag, RequestParams params){
+		requestPost(isDialog, "", tag, params);
 	}
 	
 	public void requestPost(final boolean isDialog, String dialogContent, final String tag, RequestParams params){
@@ -83,7 +92,9 @@ public class SuperFragment extends Fragment implements OnClickListener {
 	}
 	
 	public void responseFail(String msg, String tag){
-		App.showShortToast(msg);
+		if (!tag.equals(BaseConstants.getCurrentCar)) {
+			App.showShortToast(msg);
+		}
 	}
 
 }

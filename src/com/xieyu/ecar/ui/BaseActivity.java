@@ -430,6 +430,14 @@ public class BaseActivity extends FragmentActivity implements GestureDetector.On
 		}
 	}
 	
+	public void requestPost(final String tag, RequestParams params){
+		requestPost(false, "", tag, params);
+	}
+	
+	public void requestPost(final boolean isDialog, final String tag, RequestParams params){
+		requestPost(isDialog, "", tag, params);
+	}
+	
 	public void requestPost(final boolean isDialog, String dialogContent, final String tag, RequestParams params){
 		if (isDialog) {
 			showLoadingDialog(StringUtil.isNull(dialogContent));
@@ -456,10 +464,12 @@ public class BaseActivity extends FragmentActivity implements GestureDetector.On
 
 			@Override
 			public void onError(Throwable ex, boolean isOnCallback) {
+				Log.e("ex", ex.toString());
 			}
 
 			@Override
 			public void onCancelled(CancelledException cex) {
+				Log.e("cex", cex.toString());
 			}
 
 			@Override
