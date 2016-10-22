@@ -51,7 +51,8 @@ public class MainFragment extends SuperFragment
 	private int fragment = 0;
 	private MainMapFragment mainmap;
 	private MainOrderFragment mainorder;
-	private MainNewsFragment mainnews;
+//	private MainNewsFragment mainnews;
+	private MainRecherFragement recherView;
 	private MineFragemnt mine;
 	private int j = 0;
 
@@ -125,10 +126,10 @@ public class MainFragment extends SuperFragment
 			mainorder = new MainOrderFragment();
 			fragments.add(mainorder);
 		}
-		if (mainnews == null)
+		if (recherView == null)
 		{
-			mainnews = new MainNewsFragment();
-			fragments.add(mainnews);
+			recherView = new MainRecherFragement();
+			fragments.add(recherView);
 		}
 		if (mine == null)
 		{
@@ -159,9 +160,9 @@ public class MainFragment extends SuperFragment
 		private final String[] TITLES;
 		private final TabView[] VIEWS;
 		private final int[] imgIds = new int[]
-		{ R.drawable.main_map_normal, R.drawable.main_order_normal, R.drawable.main_news_normal, R.drawable.main_news_normal };
+		{ R.drawable.ic_main_car_n, R.drawable.ic_main_order_n, R.drawable.ic_main_rech_n, R.drawable.ic_main_mine_n };
 		private final int[] imgPressedIds = new int[]
-		{ R.drawable.main_map_pressed, R.drawable.main_order_pressed, R.drawable.main_news_pressed, R.drawable.main_news_pressed };
+		{ R.drawable.ic_main_car_c, R.drawable.ic_main_order_c, R.drawable.ic_main_rech_c, R.drawable.ic_main_mine_c };
 		private final PagerSlidingTabStrip tab;
 
 		public MyPagerAdapter(FragmentManager fm, PagerSlidingTabStrip tab)
@@ -189,36 +190,8 @@ public class MainFragment extends SuperFragment
 						EventBus.getDefault().post(EventMessage.updateMap);
 					}
 
-					if (i == 2)
-					{
-						j = 2;
-						headView_main.getRightButton().setText("清空");
-						headView_main.getRightButton().setOnClickListener(new OnClickListener()
-						{
-
-							@Override
-							public void onClick(View arg0)
-							{
-								AlertDialog dialog = new AlertDialog(getActivity(), R.style.add_dialog, "");
-
-								dialog.setContent("您确定要删除所有消息吗？");
-								dialog.setOnClickOKListener(new OnClickOKListener()
-								{
-									@Override
-									public void getOK()
-									{
-										EventBus.getDefault().post(EventMessage.cleanNews);
-									}
-								});
-
-								dialog.show();
-							}
-						});
-
-						PreferenceUtil.putInt(getActivity(), BaseConstants.prefre.mBadge, 0);
-						EventBus.getDefault().post(EventMessage.badgeAdd);
-					} else
-					{
+					if (i == 2) {
+					} else {
 						j = i;
 						
 						headView_main.getRightButton().setText(null);

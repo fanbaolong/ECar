@@ -30,7 +30,6 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.xieyu.ecar.App;
 import com.xieyu.ecar.ExitManager;
 import com.xieyu.ecar.R;
-import com.xieyu.ecar.http.HttpCallBack;
 import com.xieyu.ecar.ui.view.AbsCustomAlertDialog;
 import com.xieyu.ecar.ui.view.LoadingDialog;
 import com.xieyu.ecar.util.StringUtil;

@@ -8,7 +8,6 @@ public class MineFragemnt extends SuperFragment{
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onViewCreated(view, savedInstanceState);
 	}
 }
