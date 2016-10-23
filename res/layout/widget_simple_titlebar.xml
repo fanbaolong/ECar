@@ -30,6 +30,7 @@
             android:layout_centerVertical="true"
             android:ellipsize="end"
             android:lines="1"
+            android:text=""
             android:maxWidth="200dp"
             android:textColor="@color/text_3"
             android:textSize="@dimen/titlebar_title_textSize" />

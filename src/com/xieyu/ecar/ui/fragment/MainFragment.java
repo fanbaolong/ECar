@@ -199,13 +199,13 @@ public class MainFragment extends SuperFragment
 					}
 					setSelectView(i);
 					fragment = i;
-					if (i == 1) {
-						headView_main.setLeftTitle("我的订单");
-						headView_main.getTitle().setText("");
-					}else {
+//					if (i == 1) {
+//						headView_main.setLeftTitle("我的订单");
+//						headView_main.getTitle().setText("");
+//					}else {
 						headView_main.getTitle().setText(TITLES[i]);
-						headView_main.setLeftTitle("");
-					}
+//						headView_main.setLeftTitle("");
+//					}
 				}
 
 				@Override
