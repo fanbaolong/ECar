@@ -47,4 +47,7 @@
     <color name="pull_to_refresh_sub_text">#999</color>
     <color name="background_tab_pressed">#6633B5E5</color>
 
+    <color name="bg_car_id">#85c785</color>
+     <color name="bg_order_statu">#f4f4f4</color>
+    
 </resources>

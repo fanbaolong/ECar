@@ -20,6 +20,9 @@ import com.xieyu.ecar.App;
 public class StringUtil
 {
 
+	
+	//string  默认时间格式
+	public static String defaultTime = "----/--/--  --:--";
 	/**
 	 * 地图上显示电桩类型
 	 * 

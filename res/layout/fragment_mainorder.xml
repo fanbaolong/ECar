@@ -12,6 +12,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/titlebar_default_height"
         android:background="@color/white"
-        android:dividerHeight="3dp" />
+        android:dividerHeight="5dp" />
 
 </LinearLayout>

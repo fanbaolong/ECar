@@ -122,6 +122,9 @@
         <activity
             android:name="com.xieyu.ecar.ui.OrderCarDetailActivity"
             android:screenOrientation="portrait" />
+          <activity
+            android:name="com.xieyu.ecar.ui.NOrderCarDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.xieyu.ecar.ui.OrderChargeDetailActivity"
             android:screenOrientation="portrait" />

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_78dp"
+        android:background="@color/bg_order_statu"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dimen_10dp"
+        android:paddingRight="@dimen/dimen_10dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_18dp" >
+
+            <ImageView
+                android:id="@+id/order_success_left"
+                android:layout_width="@dimen/dimen_30dp"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/order_progress_line_selector"/>
+
+            <ImageView
+                android:id="@+id/order_success"
+                android:layout_width="@dimen/dimen_15dp"
+                android:layout_height="@dimen/dimen_15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:layout_toRightOf="@+id/order_success_left"
+                android:background="@drawable/order_progress_circle_selector"/>
+
+            <ImageView
+                android:id="@+id/using_line_left"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/using"
+                android:layout_toRightOf="@+id/order_success"
+                android:background="@drawable/order_progress_line_selector" />
+
+            <ImageView
+                android:id="@+id/using"
+                android:layout_width="@dimen/dimen_15dp"
+                android:layout_height="@dimen/dimen_15dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:background="@drawable/order_progress_circle_selector" />
+
+            <ImageView
+                android:id="@+id/using_line_right"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/stroke_ends"
+                android:layout_toRightOf="@+id/using"
+                android:background="@drawable/order_progress_line_selector" />
+
+            <ImageView
+                android:id="@+id/stroke_ends"
+                android:layout_width="@dimen/dimen_15dp"
+                android:layout_height="@dimen/dimen_15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:layout_toLeftOf="@+id/stroke_ends_reight"
+                android:background="@drawable/order_progress_circle_selector" />
+
+            <ImageView
+                android:id="@+id/stroke_ends_reight"
+                android:layout_width="@dimen/dimen_30dp"
+                android:layout_height="1dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/order_progress_line_selector" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40dp" >
+
+            <TextView
+                android:id="@+id/tv_order_success"
+                style="@style/layout_wrap_all"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:text="下单成功"
+                android:textColor="@color/text_6"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/tv_using"
+                style="@style/layout_wrap_all"
+                android:layout_centerInParent="true"
+                android:text="使用中"
+                android:textColor="@color/text_6"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/tv_stroke_ends"
+                style="@style/layout_wrap_all"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:text="行程结束"
+                android:textColor="@color/text_6"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

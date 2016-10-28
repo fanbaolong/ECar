@@ -8,6 +8,22 @@ import org.xutils.x;
 import org.xutils.common.Callback.CommonCallback;
 import org.xutils.http.RequestParams;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.xieyu.ecar.App;
+import com.xieyu.ecar.BaseConstants;
+import com.xieyu.ecar.R;
+import com.xieyu.ecar.adapter.NOrderPileAdapter;
+import com.xieyu.ecar.bean.EventMessage;
+import com.xieyu.ecar.bean.OrderPile;
+import com.xieyu.ecar.injector.Injector;
+import com.xieyu.ecar.injector.V;
+import com.xieyu.ecar.ui.NOrderCarDetailActivity;
+import com.xieyu.ecar.ui.OrderCarDetailActivity;
+import com.xieyu.ecar.util.PreferenceUtil;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,23 +33,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.RelativeLayout;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.xieyu.ecar.App;
-import com.xieyu.ecar.BaseConstants;
-import com.xieyu.ecar.R;
-import com.xieyu.ecar.adapter.OrderPileAdapter;
-import com.xieyu.ecar.bean.EventMessage;
-import com.xieyu.ecar.bean.OrderPile;
-import com.xieyu.ecar.injector.Injector;
-import com.xieyu.ecar.injector.V;
-import com.xieyu.ecar.ui.MainActivity;
-import com.xieyu.ecar.ui.OrderCarDetailActivity;
-import com.xieyu.ecar.util.PreferenceUtil;
-
 import de.greenrobot.event.EventBus;
 
 /**
@@ -51,7 +50,7 @@ public class MainOrderFragment extends SuperFragment implements PullToRefreshBas
 	private RelativeLayout empty_relat;
 
 	private List<OrderPile> mOrderPiles = new ArrayList<OrderPile>();
-	private OrderPileAdapter orderPileAdapter;
+	private NOrderPileAdapter orderPileAdapter;
 	private int pageNum = 1;
 
 	@Override
@@ -72,7 +71,7 @@ public class MainOrderFragment extends SuperFragment implements PullToRefreshBas
 		lv_ordercharge.setOnRefreshListener(this);
 		lv_ordercharge.setShowIndicator(false);
 
-		orderPileAdapter = new OrderPileAdapter(getActivity(), R.layout.adapter_order);
+		orderPileAdapter = new NOrderPileAdapter (getActivity(), R.layout.adapter_order_n);
 		lv_ordercharge.setEmptyView(empty_relat);
 		lv_ordercharge.setAdapter(orderPileAdapter);
 
@@ -83,7 +82,7 @@ public class MainOrderFragment extends SuperFragment implements PullToRefreshBas
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3)
 			{
-				Intent in = new Intent(getActivity(), OrderCarDetailActivity.class);
+				Intent in = new Intent(getActivity(), NOrderCarDetailActivity.class);
 				in.putExtra("orderCharge", orderPileAdapter.getData().get(pos - 1));
 				mActivity.startActivity(in, true);
 			}

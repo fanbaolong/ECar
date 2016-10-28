@@ -27,7 +27,7 @@ public class App extends Application
 	private static final String TAG = "com.xieyu.ecar";
 
 	private static final boolean DBG = true;
-
+	
 	public static boolean hasUpdate = false; // 判断是否有更新
 
 	public static int select = 0; // 0:地图；1：订单；2：消息
