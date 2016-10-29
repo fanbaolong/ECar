@@ -1,11 +1,10 @@
-package com.xieyu.ecar.ui.fragment;
+package com.xieyu.ecar.ui;
 
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,7 +12,6 @@ import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,23 +23,22 @@ import com.xieyu.ecar.R;
 import com.xieyu.ecar.bean.EventMessage;
 import com.xieyu.ecar.injector.Injector;
 import com.xieyu.ecar.injector.V;
-import com.xieyu.ecar.ui.MainActivity;
+import com.xieyu.ecar.ui.fragment.MainMapFragment;
+import com.xieyu.ecar.ui.fragment.MainOrderFragment;
+import com.xieyu.ecar.ui.fragment.MainRecherFragement;
+import com.xieyu.ecar.ui.fragment.MainMineFragemnt;
 import com.xieyu.ecar.ui.view.MyViewPager;
 import com.xieyu.ecar.ui.view.PagerSlidingTabStrip;
-import com.xieyu.ecar.ui.view.TabHeadView;
 import com.xieyu.ecar.util.PreferenceUtil;
 
 import de.greenrobot.event.EventBus;
 
-public class MainFragment extends BaseFragment
-{
+public class MainDesktopActivity extends BaseActivity {
 
 	@V
 	private PagerSlidingTabStrip tabs;
 	@V
 	private MyViewPager pager;
-	@V
-	private TabHeadView headView_main;
 	private TextView tv_newsnum;
 
 	private ArrayList<Fragment> fragments = new ArrayList<Fragment>();
@@ -49,88 +46,47 @@ public class MainFragment extends BaseFragment
 	private int fragment = 0;
 	private MainMapFragment mainmap;
 	private MainOrderFragment mainorder;
-//	private MainNewsFragment mainnews;
+	//	private MainNewsFragment mainnews;
 	private MainRecherFragement recherView;
 	private MainMineFragemnt mine;
 	private int j = 0;
 
 	@Override
-	@Nullable
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-	{
-		return inflater.inflate(R.layout.fragment_main, container, false);
-	}
-
-	@Override
-	public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
-	{
-		super.onViewCreated(view, savedInstanceState);
-		Injector.getInstance().inject(mActivity, this, view);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.fragment_main);
+		Injector.getInstance().inject(this);
 		EventBus.getDefault().register(this);
-
 		setView();
+
 	}
 
-	@Override
-	public void onResume()
-	{
-		super.onResume();
-	}
 
 	@Override
-	public void onPause()
-	{
-		super.onPause();
-	}
-
-	@Override
-	public void onStart()
-	{
+	public void onStart() {
 		super.onStart();
-		if (App.ispager)
-		{
+		if (App.ispager) {
 			pager.setCurrentItem(App.select);
 			App.ispager = false;
 		}
 	}
 
-	private void setView()
-	{
-		headView_main.getTitle().setText(getResources().getText(R.string.map));// 这里还是要设下，否则初次进入的话title不会显示地图
-		headView_main.getLeftButton().setImageResource(R.drawable.icon_menu);
-		headView_main.getLeftButton().setOnClickListener(new OnClickListener()
-		{
-
-			@Override
-			public void onClick(View arg0)
-			{
-				MainActivity main = (MainActivity) getActivity();
-				if (main.drawer_layout.isDrawerOpen(main.mMenu_layout))
-				{
-					main.drawer_layout.closeDrawer(main.mMenu_layout);
-				} else
-				{
-					main.drawer_layout.openDrawer(main.mMenu_layout);
-				}
-			}
-		});
-		if (mainmap == null)
-		{
+	private void setView() {
+		
+		if (mainmap == null) {
 			mainmap = new MainMapFragment();
 			fragments.add(mainmap);
 		}
-		if (mainorder == null)
-		{
+		if (mainorder == null) {
 			mainorder = new MainOrderFragment();
 			fragments.add(mainorder);
 		}
-		if (recherView == null)
-		{
+		if (recherView == null) {
 			recherView = new MainRecherFragement();
 			fragments.add(recherView);
 		}
-		if (mine == null)
-		{
+		if (mine == null) {
 			mine = new MainMineFragemnt();
 			fragments.add(mine);
 		}
@@ -143,7 +99,7 @@ public class MainFragment extends BaseFragment
 		tabs.setDividerPadding(0);
 		pager.setOffscreenPageLimit(4);// 预加载fragment数量
 		pager.setScanScroll(false);
-		adapter = new MyPagerAdapter(getFragmentManager(), tabs);
+		adapter = new MyPagerAdapter(getSupportFragmentManager(), tabs);
 		pager.setAdapter(adapter);
 		pager.setCurrentItem(0);
 		final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
@@ -152,36 +108,30 @@ public class MainFragment extends BaseFragment
 
 	}
 
-	public class MyPagerAdapter extends FragmentPagerAdapter implements PagerSlidingTabStrip.IconTabProvider
-	{
+	public class MyPagerAdapter extends FragmentPagerAdapter implements PagerSlidingTabStrip.IconTabProvider {
 
 		private final String[] TITLES;
 		private final TabView[] VIEWS;
 		private final int[] imgIds = new int[]
-		{ R.drawable.ic_main_car_n, R.drawable.ic_main_order_n, R.drawable.ic_main_rech_n, R.drawable.ic_main_mine_n };
+				{ R.drawable.ic_main_car_n, R.drawable.ic_main_order_n, R.drawable.ic_main_rech_n, R.drawable.ic_main_mine_n };
 		private final int[] imgPressedIds = new int[]
-		{ R.drawable.ic_main_car_c, R.drawable.ic_main_order_c, R.drawable.ic_main_rech_c, R.drawable.ic_main_mine_c };
+				{ R.drawable.ic_main_car_c, R.drawable.ic_main_order_c, R.drawable.ic_main_rech_c, R.drawable.ic_main_mine_c };
 		private final PagerSlidingTabStrip tab;
 
-		public MyPagerAdapter(FragmentManager fm, PagerSlidingTabStrip tab)
-		{
+		public MyPagerAdapter(FragmentManager fm, PagerSlidingTabStrip tab) {
 			super(fm);
 			this.tab = tab;
 			TITLES = getResources().getStringArray(R.array.bottom_navigation);
 			VIEWS = new TabView[TITLES.length];
-			tab.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
-			{
+			tab.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 				@Override
-				public void onPageScrolled(int i, float v, int i2)
-				{
+				public void onPageScrolled(int i, float v, int i2) {
 				}
 
 				@Override
-				public void onPageSelected(int i)
-				{
-					if (i != j && j == 2)
-					{
-						PreferenceUtil.putInt(getActivity(), BaseConstants.prefre.mBadge, 0);
+				public void onPageSelected(int i) {
+					if (i != j && j == 2)  {
+						PreferenceUtil.putInt(MainDesktopActivity.this, BaseConstants.prefre.mBadge, 0);
 						EventBus.getDefault().post(EventMessage.badgeAdd);
 					} 
 					if (i == 0 && j != 0 ) {
@@ -191,19 +141,10 @@ public class MainFragment extends BaseFragment
 					if (i == 2) {
 					} else {
 						j = i;
-						
-//						headView_main.getRightButton().setText(null);
-//						headView_main.getRightButton().setOnClickListener(null);
+
 					}
 					setSelectView(i);
 					fragment = i;
-//					if (i == 1) {
-//						headView_main.setLeftTitle("我的订单");
-//						headView_main.getTitle().setText("");
-//					}else {
-						headView_main.getTitle().setText(TITLES[i]);
-//						headView_main.setLeftTitle("");
-//					}
 				}
 
 				@Override
@@ -214,35 +155,29 @@ public class MainFragment extends BaseFragment
 		}
 
 		@Override
-		public CharSequence getPageTitle(int position)
-		{
+		public CharSequence getPageTitle(int position) {
 			return TITLES[position];
 		}
 
 		@Override
-		public int getCount()
-		{
+		public int getCount() {
 			return TITLES.length;
 		}
 
 		@Override
-		public Fragment getItem(int position)
-		{
+		public Fragment getItem(int position) {
 			return fragments.get(position);
 		}
 
 		@Override
-		public View getPageView(int i)
-		{
+		public View getPageView(int i) {
 			if (VIEWS[i] == null)
 				VIEWS[i] = getTabItemView(i);
 			return VIEWS[i];
 		}
 
-		private void setSelectView(int index)
-		{
-			for (int i = 0; i < VIEWS.length; i++)
-			{
+		private void setSelectView(int index) {
+			for (int i = 0; i < VIEWS.length; i++) {
 				if (i == index)
 					VIEWS[i].setSelect(imgPressedIds[i]);
 				else
@@ -253,13 +188,11 @@ public class MainFragment extends BaseFragment
 		/**
 		 * 给Tab按钮设置图标和文字
 		 */
-		private TabView getTabItemView(int index)
-		{
-			return new TabView(mActivity, index);
+		private TabView getTabItemView(int index) {
+			return new TabView(MainDesktopActivity.this, index);
 		}
 
-		private class TabView extends LinearLayout
-		{
+		private class TabView extends LinearLayout {
 
 			private final ImageView imageView;
 			private final TextView textView, tv_news;
@@ -273,27 +206,21 @@ public class MainFragment extends BaseFragment
 				imageView = (ImageView) layout.findViewById(R.id.imageView);
 				textView = (TextView) layout.findViewById(R.id.txt_cn);
 				tv_news = (TextView) layout.findViewById(R.id.tv_news);
-				if (index == 0)
-				{
+				if (index == 0) {
 					setSelect(imgPressedIds[index]);
-				} else
-				{
+				} else {
 					setUnSelect(imgIds[index]);
 				}
-				if (index == 2)
-				{
-					int badge = PreferenceUtil.getInt(getActivity(), BaseConstants.prefre.mBadge);
-					if (badge == 0)
-					{
+				if (index == 2) {
+					int badge = PreferenceUtil.getInt(MainDesktopActivity.this, BaseConstants.prefre.mBadge);
+					if (badge == 0) {
 						tv_news.setVisibility(View.GONE);
-					} else
-					{
+					} else {
 						tv_news.setVisibility(View.VISIBLE);
 						tv_news.setText(badge + "");
 					}
 					tv_newsnum = tv_news;
-				} else
-				{
+				} else {
 					tv_news.setVisibility(View.GONE);
 				}
 				TextView textView = (TextView) layout.findViewById(R.id.txt_cn);
@@ -302,20 +229,17 @@ public class MainFragment extends BaseFragment
 				addView(layout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 			}
 
-			private void setSelect(int id)
-			{
+			private void setSelect(int id) {
 				imageView.setImageResource(id);
 				textView.setTextColor(getResources().getColor(R.color.bottom_text));
 				// layout.setBackgroundColor(getResources().getColor(R.color.base_title_alpth));
 			}
 
-			private void setUnSelect(int imgId)
-			{
+			private void setUnSelect(int imgId) {
 				imageView.setImageResource(imgId);
 				textView.setTextColor(getResources().getColor(R.color.text_3));
 				// layout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 			}
-
 		}
 	}
 
@@ -324,28 +248,20 @@ public class MainFragment extends BaseFragment
 	 * 
 	 * @param str
 	 */
-	public void onEvent(EventMessage message)
-	{
-		switch (message)
-		{
+	public void onEvent(EventMessage message) {
+		switch (message) {
 		case badgeAdd:
 
-			int i = PreferenceUtil.getInt(getActivity(), BaseConstants.prefre.mBadge);
-			if (i <= 0)
-			{
+			int i = PreferenceUtil.getInt(MainDesktopActivity.this, BaseConstants.prefre.mBadge);
+			if (i <= 0) {
 				tv_newsnum.setVisibility(View.GONE);
-			} else
-			{
+			} else {
 				tv_newsnum.setVisibility(View.VISIBLE);
 				tv_newsnum.setText(i + "");
 			}
-
 			break;
-
 		default:
 			break;
 		}
-
 	}
-
 }

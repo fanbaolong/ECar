@@ -66,15 +66,16 @@
                 android:textColor="@color/text_3"
                 android:textSize="@dimen/text_h4" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/titlebar_right_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/titlebar_btn_height"
                 android:layout_marginLeft="10dp"
                 android:background="@null"
+                android:contentDescription="@null"
                 android:gravity="center"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
+                android:paddingRight="10dp"
                 android:textColor="@color/text_3"
                 android:textSize="@dimen/titlebar_btn_text_size" />
         </LinearLayout>

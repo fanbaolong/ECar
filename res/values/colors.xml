@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="main_bg">#f4f4f4</color>
     <color name="bai">#f9f9f9</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
@@ -17,11 +18,11 @@
     <color name="holo_title">#27CC42</color>
     <color name="order_start">#F2A225</color>
     <color name="holo_red">#3EA73E</color>
-    <color name="main_bg">#F0F0F0</color>
-    <color name="line_bg">#D6D6D6</color>
+    <color name="line_bg">#e4e4e4</color>
     <color name="red_text">#EC1946</color>
     <color name="btn_gray">#B5B3B4</color>
     <color name="txt_yrllow">#D2BE86</color>
+    <color name="mine_title_line">#646260</color>
 
     <!-- 大布局背景 -->
     <color name="background_color">#f0f0f0</color>
@@ -36,18 +37,18 @@
     <color name="txt_code_pressed">#4F9228</color>
     <color name="left_pressed">#EDEDED</color>
     <color name="light_gray_transparent">#e6e6e6</color>
-    
+
     <!-- 黑色字体的三种颜色，又浅到深 -->
     <color name="text_9">#999999</color>
     <color name="text_6">#666666</color>
     <color name="text_3">#898989</color>
+    <color name="text_b">#3ea73e</color>
 
     <!-- 下拉刷新 -->
     <color name="pull_to_refresh_text">#777</color>
     <color name="pull_to_refresh_sub_text">#999</color>
     <color name="background_tab_pressed">#6633B5E5</color>
-
     <color name="bg_car_id">#85c785</color>
-     <color name="bg_order_statu">#f4f4f4</color>
-    
+    <color name="bg_order_statu">#f4f4f4</color>
+
 </resources>

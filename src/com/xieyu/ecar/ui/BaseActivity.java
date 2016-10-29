@@ -40,8 +40,8 @@ import com.xieyu.ecar.util.SystemBarTintManager;
  *
  *         基础activity 所有的activity都要继承这个
  */
-public class BaseActivity extends FragmentActivity implements GestureDetector.OnGestureListener, OnClickListener
-{
+public class BaseActivity extends FragmentActivity implements 
+GestureDetector.OnGestureListener, OnClickListener {
 
 	public  final String TAG = getClass().getSimpleName();
 	public SlidingMenu menu;
@@ -58,8 +58,7 @@ public class BaseActivity extends FragmentActivity implements GestureDetector.On
 	SystemBarTintManager tintManager;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		context = this;
@@ -67,17 +66,17 @@ public class BaseActivity extends FragmentActivity implements GestureDetector.On
 		ExitManager.getInstance().addActivity(this); // 将activity注册到activity容器
 		x.view().inject(this);
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-		{
-			setTranslucentStatus(context, true);
-		}
-		// 创建状态栏的管理实例
-		tintManager = new SystemBarTintManager(this);
-		// 激活状态栏设置
-		tintManager.setStatusBarTintEnabled(true);
-		// 激活导航栏设置
-		tintManager.setNavigationBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.color.white);
+//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+//		{
+//			setTranslucentStatus(context, true);
+//		}
+//		// 创建状态栏的管理实例
+//		tintManager = new SystemBarTintManager(this);
+//		// 激活状态栏设置
+//		tintManager.setStatusBarTintEnabled(true);
+//		// 激活导航栏设置 
+//		tintManager.setNavigationBarTintEnabled(true);
+//		tintManager.setStatusBarTintResource(R.color.white);
 
 		JPushInterface.init(this);
 	}

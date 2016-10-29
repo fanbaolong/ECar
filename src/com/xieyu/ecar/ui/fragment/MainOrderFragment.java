@@ -8,6 +8,16 @@ import org.xutils.x;
 import org.xutils.common.Callback.CommonCallback;
 import org.xutils.http.RequestParams;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.RelativeLayout;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -21,18 +31,9 @@ import com.xieyu.ecar.bean.OrderPile;
 import com.xieyu.ecar.injector.Injector;
 import com.xieyu.ecar.injector.V;
 import com.xieyu.ecar.ui.NOrderCarDetailActivity;
-import com.xieyu.ecar.ui.OrderCarDetailActivity;
+import com.xieyu.ecar.ui.view.TabHeadView;
 import com.xieyu.ecar.util.PreferenceUtil;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.RelativeLayout;
 import de.greenrobot.event.EventBus;
 
 /**
@@ -42,31 +43,35 @@ import de.greenrobot.event.EventBus;
  *
  */
 @SuppressWarnings("rawtypes")
-public class MainOrderFragment extends SuperFragment implements PullToRefreshBase.OnRefreshListener2
-{
+public class MainOrderFragment extends BaseFragment implements PullToRefreshBase.OnRefreshListener2 {
 	@V
 	private PullToRefreshListView lv_ordercharge;
 	@V
 	private RelativeLayout empty_relat;
+	@V
+	private TabHeadView top_title;
 
 	private List<OrderPile> mOrderPiles = new ArrayList<OrderPile>();
 	private NOrderPileAdapter orderPileAdapter;
 	private int pageNum = 1;
 
 	@Override
-	@Nullable
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-	{
+	public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_mainorder, container, false);
 		Injector.getInstance().inject(getActivity(), this, view);
 		EventBus.getDefault().register(this);// 注册订阅者 MyFragment
+		initTitle();
 		setView();
 		return view;
 
 	}
 
-	private void setView()
-	{
+	private void initTitle() {
+		top_title.getTitle().setText("订单");
+		top_title.getLeftButton().setVisibility(View.GONE);
+	}
+
+	private void setView() {
 		lv_ordercharge.setMode(PullToRefreshBase.Mode.BOTH);
 		lv_ordercharge.setOnRefreshListener(this);
 		lv_ordercharge.setShowIndicator(false);
@@ -77,8 +82,7 @@ public class MainOrderFragment extends SuperFragment implements PullToRefreshBas
 
 		getOrderList(1, true);
 
-		lv_ordercharge.setOnItemClickListener(new OnItemClickListener()
-		{
+		lv_ordercharge.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3)
 			{
@@ -91,42 +95,35 @@ public class MainOrderFragment extends SuperFragment implements PullToRefreshBas
 	}
 
 	@Override
-	public void onPullDownToRefresh(PullToRefreshBase refreshView)
-	{
+	public void onPullDownToRefresh(PullToRefreshBase refreshView) {
 		pageNum = 1;
 		getOrderList(pageNum, true);
 	}
 
 	@Override
-	public void onPullUpToRefresh(PullToRefreshBase refreshView)
-	{
+	public void onPullUpToRefresh(PullToRefreshBase refreshView) {
 		pageNum++;
 		getOrderList(pageNum, false);
 	}
-
 	/**
 	 * @param page
 	 * @param isRefresh
 	 * 
 	 *            获取我的订单列表
 	 */
-	private void getOrderList(int page, final boolean isRefresh)
-	{
+	private void getOrderList(int page, final boolean isRefresh) {
 
 		RequestParams params = new RequestParams(BaseConstants.orderList);
 		params.addBodyParameter("sessionId", PreferenceUtil.getString(getActivity(), BaseConstants.prefre.SessionId));
 		params.addBodyParameter("pageNumber", page + "");
 		params.addBodyParameter("orderType", "CarType");// PilesType CarType
 
-		x.http().post(params, new CommonCallback<String>()
-		{
+		x.http().post(params, new CommonCallback<String>() {
 			@Override
-			public void onSuccess(String result)
-			{
+			public void onSuccess(String result) {
 				App.showLog("result==" + result);
 
-				try
-				{
+				try {
 					JSONObject jsonObject = new JSONObject(result);
 					if ("OK".equals(jsonObject.getString("resultType")))
 					{
@@ -184,10 +181,8 @@ public class MainOrderFragment extends SuperFragment implements PullToRefreshBas
 
 	}
 
-	public void onEvent(EventMessage message)
-	{
-		switch (message)
-		{
+	public void onEvent(EventMessage message) {
+		switch (message) {
 		case refreshOrder:
 			getOrderList(1, true);
 			break;
@@ -195,7 +190,6 @@ public class MainOrderFragment extends SuperFragment implements PullToRefreshBas
 		default:
 			break;
 		}
-
 	}
 
 }

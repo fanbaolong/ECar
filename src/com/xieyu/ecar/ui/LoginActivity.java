@@ -304,11 +304,9 @@ public class LoginActivity extends SimpleTitleBarActivity
 						mUser.setPassWord(getText(mUserPassEdit));
 
 						MoreUser user = App.db.selector(MoreUser.class).where("UserName", "=", getText(mUserNameEdit)).findFirst();
-						if (user == null)
-						{
+						if (user == null) {
 							App.db.save(mUser);
-						} else
-						{
+						} else {
 							App.db.delete(user);
 							App.db.save(mUser);
 						}
@@ -440,8 +438,9 @@ public class LoginActivity extends SimpleTitleBarActivity
 
 	private void toMainActivity()
 	{
-		Intent i = new Intent(LoginActivity.this, MainActivity.class);
-		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//		Intent i = new Intent(LoginActivity.this, MainActivity.class);
+		Intent i = new Intent(LoginActivity.this, MainDesktopActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		startActivity(i);
 		LoginActivity.this.finish();
 	}

@@ -16,14 +16,12 @@ import com.xieyu.ecar.ui.view.SimpleTitleBar;
  * 
  * @author fbl
  */
-public class SimpleTitleBarActivity extends BaseActivity implements OnClickListener
-{
+public class SimpleTitleBarActivity extends BaseActivity implements OnClickListener {
 
 	private SimpleTitleBar mTitleBar;
 
 	@Override
-	protected void onCreate(Bundle savedInstance)
-	{
+	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 

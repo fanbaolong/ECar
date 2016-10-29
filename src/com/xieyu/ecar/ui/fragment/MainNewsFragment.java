@@ -43,7 +43,7 @@ import de.greenrobot.event.EventBus;
  *
  */
 @SuppressWarnings("rawtypes")
-public class MainNewsFragment extends SuperFragment implements PullToRefreshBase.OnRefreshListener2
+public class MainNewsFragment extends BaseFragment implements PullToRefreshBase.OnRefreshListener2
 {
 	@V
 	private TextView tv_warning, tv_service;

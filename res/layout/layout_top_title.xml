@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/titlebar_default_height1"
+    android:background="@color/white" >
+
+    <ImageButton
+        android:id="@+id/title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/titlebar_btn_height"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:gravity="left|center_vertical"
+        android:minWidth="40dp"
+        android:src="@drawable/car_left"
+        android:textSize="@dimen/titlebar_btn_text_size" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxWidth="200dp"
+        android:text="@string/map"
+        android:textColor="@color/text_3"
+        android:textSize="@dimen/titlebar_title_textSize" />
+
+    <ImageView
+        android:id="@+id/title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@null"
+        android:visibility="gone"
+        android:contentDescription="@null"
+        android:minWidth="40dp"
+        android:src="@drawable/ic_scan"
+        android:textSize="@dimen/titlebar_btn_text_size" />
+
+</RelativeLayout>

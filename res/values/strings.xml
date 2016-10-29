@@ -101,5 +101,6 @@
     <string name="driving_number">驾驶证号:</string>
     <string name="driving_number_hint">请输入驾驶证号</string>
     <string name="order_detail">订单详情</string>
+    <string name="mine">我的</string>
 
 </resources>

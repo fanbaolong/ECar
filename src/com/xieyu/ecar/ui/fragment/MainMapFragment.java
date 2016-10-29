@@ -16,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -55,8 +54,8 @@ import com.xieyu.ecar.ui.BaseActivity;
 import com.xieyu.ecar.ui.BookCarInfoActivity;
 import com.xieyu.ecar.ui.BookChargeDetailActivity;
 import com.xieyu.ecar.ui.ControlActivity;
-import com.xieyu.ecar.ui.MainActivity;
 import com.xieyu.ecar.ui.ZBarScanActivity;
+import com.xieyu.ecar.ui.view.TabHeadView;
 import com.xieyu.ecar.util.DialogPrompt;
 import com.xieyu.ecar.util.PreferenceUtil;
 
@@ -68,16 +67,12 @@ import de.greenrobot.event.EventBus;
  * @author wangfeng
  * 
  */
-public class MainMapFragment extends SuperFragment implements OnClickListener {
+public class MainMapFragment extends BaseFragment implements OnClickListener {
 
 	@V
 	private MapView main_map;
-	// @V
-	// private TabHeadView headView_main;
 	@V
-	private ImageView map_top_right_btn;
-	@V
-	private ImageButton map_top_left_btn;
+	private TabHeadView titlebar_content;
 	@V
 	private ImageView dingwei_image, img_key;
 
@@ -119,8 +114,21 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 		super.onViewCreated(view, savedInstanceState);
 		Injector.getInstance().inject(getActivity(), this, view);
 		EventBus.getDefault().register(this);
+		initTitle();
 		setView();
 		getCurrentCar();
+	}
+
+	private void initTitle() {
+		titlebar_content.getTitle().setText(getResources().getString(R.string.map));
+		titlebar_content.getLeftButton().setVisibility(View.GONE);
+		titlebar_content.getRightButton().setImageResource(R.drawable.ic_scan);
+		titlebar_content.getRightButton().setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(), ZBarScanActivity.class));	
+			}
+		});
 	}
 
 	/** 获取是否存在可控车辆 */
@@ -209,8 +217,6 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 	}
 
 	private void setView() {
-		map_top_left_btn.setOnClickListener(this);
-		map_top_right_btn.setOnClickListener(this);
 		dingwei_image.setOnClickListener(this);
 		img_key.setOnClickListener(this);
 
@@ -430,19 +436,6 @@ public class MainMapFragment extends SuperFragment implements OnClickListener {
 	public void onClick(View v) {
 		super.onClick(v);
 		switch (v.getId()) {
-		case R.id.map_top_left_btn:
-
-			MainActivity main = (MainActivity) getActivity();
-			if (main.drawer_layout.isDrawerOpen(main.mMenu_layout)) {
-				main.drawer_layout.closeDrawer(main.mMenu_layout);
-			} else {
-				main.drawer_layout.openDrawer(main.mMenu_layout);
-			}
-
-			break;
-		case R.id.map_top_right_btn:
-			startActivity(new Intent(getActivity(), ZBarScanActivity.class));
-			break;
 
 		case R.id.dingwei_image:
 			isLocal = true;

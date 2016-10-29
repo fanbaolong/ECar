@@ -3,13 +3,14 @@ package com.xieyu.ecar.ui.fragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.x;
-import org.xutils.common.Callback.CancelledException;
 import org.xutils.common.Callback.CommonCallback;
 import org.xutils.http.RequestParams;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 
 import com.xieyu.ecar.App;
@@ -23,7 +24,7 @@ import com.xieyu.ecar.util.StringUtil;
  * @author wangfeng
  *
  */
-public class SuperFragment extends Fragment implements OnClickListener {
+public class BaseFragment extends Fragment implements OnClickListener {
 
 	public BaseActivity mActivity;
 
@@ -31,6 +32,12 @@ public class SuperFragment extends Fragment implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.mActivity = (BaseActivity) getActivity();
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		return x.view().inject(this, inflater, container);
 	}
 
 	@Override

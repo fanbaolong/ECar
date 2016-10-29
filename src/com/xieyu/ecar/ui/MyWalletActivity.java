@@ -25,8 +25,7 @@ import com.xieyu.ecar.util.PreferenceUtil;
  * 
  *         我的钱包
  */
-public class MyWalletActivity extends BackableTitleBarActivity
-{
+public class MyWalletActivity extends BackableTitleBarActivity {
 
 	@V
 	private RelativeLayout recharge_relat, recharge_detail_relat;
@@ -36,8 +35,7 @@ public class MyWalletActivity extends BackableTitleBarActivity
 	private User mUser;
 
 	@Override
-	protected void onCreate(Bundle savedInstance)
-	{
+	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setContentView(R.layout.fragment_mywallet);
 		getTitleBar().setTitle(R.string.my_wallet);

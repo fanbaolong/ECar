@@ -44,7 +44,7 @@ public class BookCarInfoActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bookcarinfo);
 		Injector.getInstance().inject(this);
-		setColor();
+//		setColor();
 		init();
 	}
 	

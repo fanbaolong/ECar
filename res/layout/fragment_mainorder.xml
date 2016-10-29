@@ -4,13 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <com.xieyu.ecar.ui.view.TabHeadView
+        android:id="@+id/top_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
     <include layout="@layout/empty_view" />
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/lv_ordercharge"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/titlebar_default_height"
+        android:layout_marginTop="@dimen/dimen_2dp"
         android:background="@color/white"
         android:dividerHeight="5dp" />
 

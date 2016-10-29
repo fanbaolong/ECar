@@ -34,8 +34,8 @@ import com.xieyu.ecar.util.PreferenceUtil;
  *         我的账单列表
  */
 @SuppressWarnings("rawtypes")
-public class MyBillListActivity extends BackableTitleBarActivity implements PullToRefreshBase.OnRefreshListener2
-{
+public class MyBillListActivity extends BackableTitleBarActivity implements 
+PullToRefreshBase.OnRefreshListener2 {
 	@V
 	private RelativeLayout empty_relat;
 	@V

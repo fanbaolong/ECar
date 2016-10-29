@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/mine_top_relat"
+        style="@style/layout_match_wrap"
+        android:background="#554241"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titlebar_default_height1" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxWidth="200dp"
+                android:text="@string/mine"
+                android:textColor="@color/white"
+                android:textSize="@dimen/titlebar_title_textSize" />
+
+            <ImageView
+                android:id="@+id/title_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_msg_nor"
+                android:textSize="@dimen/titlebar_btn_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/user_detail_relat"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dimen_100dp" >
+
+            <ImageView
+                android:id="@+id/head_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:src="@drawable/head" />
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/head_image"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_toRightOf="@+id/head_image"
+                android:drawableRight="@drawable/img_sm"
+                android:singleLine="true"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:src="@drawable/head"
+                android:text="hahahah"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/userTel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userName"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_toRightOf="@+id/head_image"
+                android:singleLine="true"
+                android:src="@drawable/head"
+                android:text="手机号：18896572222"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/detail_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:src="@drawable/ic_to_detail" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/layout_match_all"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_rental_num"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="3次"
+                    android:textColor="@color/text_b" />
+
+                <TextView
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="租车次数"
+                    android:textColor="@color/text_3" />
+            </LinearLayout>
+
+            <View
+                style="@style/v_line"
+                android:layout_marginBottom="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@color/mine_title_line" />
+
+            <LinearLayout
+                style="@style/layout_match_all"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_driven_distance"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="5.1"
+                    android:textColor="@color/text_b" />
+
+                <TextView
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="行驶里程"
+                    android:textColor="@color/text_3" />
+            </LinearLayout>
+
+            <View
+                style="@style/v_line"
+                android:layout_marginBottom="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@color/mine_title_line" />
+
+            <LinearLayout
+                style="@style/layout_match_all"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_saving"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="240"
+                    android:textColor="@color/text_b" />
+
+                <TextView
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="节能减排"
+                    android:textColor="@color/text_3" />
+            </LinearLayout>
+
+            <View
+                style="@style/v_line"
+                android:layout_marginBottom="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@color/mine_title_line" />
+
+            <LinearLayout
+                style="@style/layout_match_all"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_rental_time"
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="6"
+                    android:textColor="@color/text_b" />
+
+                <TextView
+                    style="@style/layout_wrap_all"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="总租车时间"
+                    android:textColor="@color/text_3" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView style="@style/layout_match_wrap" >
+
+        <LinearLayout
+            style="@style/layout_match_wrap"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_my_walet"
+                style="@style/mine_text"
+                android:drawableLeft="@drawable/ic_wallet"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:text="我的钱包" />
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp" />
+
+            <TextView
+                 android:id="@+id/tv_my_discount"
+                style="@style/mine_text"
+                android:drawableLeft="@drawable/ic_discount"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:text="优惠券" />
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp" />
+
+            <TextView
+                android:id="@+id/tv_my_piao"
+                style="@style/mine_text"
+                android:drawableLeft="@drawable/ic_piao"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:text="发票" />
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp" />
+
+            <TextView
+                 android:id="@+id/tv_flow"
+                style="@style/mine_text"
+                android:drawableLeft="@drawable/ic_flow"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:text="租车流程" />
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp" />
+
+            <TextView
+                 android:id="@+id/tv_notice"
+                style="@style/mine_text"
+                android:drawableLeft="@drawable/ic_notice"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:text="租车须知" />
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp" />
+
+            <TextView
+                 android:id="@+id/tv_suggest"
+                style="@style/mine_text"
+                android:drawableLeft="@drawable/ic_suggest"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:text="投诉建议" />
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp" />
+
+            <TextView
+                android:id="@+id/tv_about"
+                style="@style/mine_text"
+                android:drawableLeft="@drawable/ic_about"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:text="关于" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

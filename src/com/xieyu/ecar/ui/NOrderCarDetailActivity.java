@@ -1,21 +1,12 @@
 package com.xieyu.ecar.ui;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.xutils.x;
-import org.xutils.common.Callback.CommonCallback;
-import org.xutils.http.RequestParams;
-
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.xieyu.ecar.BaseConstants;
 import com.xieyu.ecar.R;
 import com.xieyu.ecar.bean.OrderPile;
 import com.xieyu.ecar.bean.OrdersStateType;
@@ -24,9 +15,8 @@ import com.xieyu.ecar.injector.Injector;
 import com.xieyu.ecar.injector.V;
 import com.xieyu.ecar.ui.view.CircularImageView;
 import com.xieyu.ecar.util.AlertDialog;
-import com.xieyu.ecar.util.PreferenceUtil;
-import com.xieyu.ecar.util.StringUtil;
 import com.xieyu.ecar.util.AlertDialog.OnClickOKListener;
+import com.xieyu.ecar.util.StringUtil;
 
 /**
  * 租车订单详情
