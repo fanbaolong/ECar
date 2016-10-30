@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/my_head_relat"
+        style="@style/input_layout"
+        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/dimen_10dp" >
+
+        <TextView
+            style="@style/input_layout_left_text"
+            android:text="头像" />
+
+        <ImageView
+            style="@style/layout_wrap_all"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/dimen_5dp"
+            android:contentDescription="@null"
+            android:src="@drawable/head" />
+    </RelativeLayout>
+
+    <View
+        style="@style/h_line"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp" />
+
+    <RelativeLayout
+        android:id="@+id/my_userno_relat"
+        style="@style/input_layout" >
+
+        <TextView
+            style="@style/input_layout_left_text"
+            android:text="用户名" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/input_layout_right_text"
+            android:text="张三" />
+    </RelativeLayout>
+
+    <View
+        style="@style/h_line"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp" />
+
+    <RelativeLayout
+        android:id="@+id/my_usetel_relat"
+        style="@style/input_layout" >
+
+        <TextView
+            style="@style/input_layout_left_text"
+            android:text="手机号" />
+
+        <TextView
+             android:id="@+id/tv_tel"
+            style="@style/input_layout_right_text"
+            android:text="18897562331" />
+    </RelativeLayout>
+
+    <View
+        style="@style/h_line"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp" />
+
+    <RelativeLayout
+        android:id="@+id/my_email_relat"
+        style="@style/input_layout" >
+
+        <TextView
+            style="@style/input_layout_left_text"
+            android:text="邮箱" />
+
+        <TextView
+             android:id="@+id/tv_email"
+            style="@style/input_layout_right_text"
+            android:text="23@qq.com" />
+    </RelativeLayout>
+
+    <View
+        style="@style/h_line"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp" />
+
+    <RelativeLayout
+        android:id="@+id/my_address_relat"
+        style="@style/input_layout" >
+
+        <TextView
+            style="@style/input_layout_left_text"
+            android:text="地址" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            style="@style/input_layout_right_text"
+            android:text="江苏省苏州市工业园区" />
+    </RelativeLayout>
+
+    <View
+        style="@style/h_line"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp" />
+
+    <RelativeLayout
+        android:id="@+id/my_shiming_relat"
+        style="@style/input_layout" >
+
+        <TextView
+            style="@style/input_layout_left_text"
+            android:text="实名认证" />
+
+        <TextView
+            android:id="@+id/tv_shiming"
+            style="@style/input_layout_right_text"
+            android:text="未认证" />
+    </RelativeLayout>
+
+    <View
+        style="@style/h_line"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp" />
+
+    <RelativeLayout
+        android:id="@+id/my_drive_card_relat"
+        style="@style/input_layout" >
+
+        <TextView
+            style="@style/input_layout_left_text"
+            android:text="驾驶证认证" />
+
+        <TextView
+            android:id="@+id/tv_drive_card"
+            style="@style/input_layout_right_text"
+            android:text="未认证" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_logout"
+        style="@style/btn_normal"
+        android:text="退出登录" />
+
+</LinearLayout>

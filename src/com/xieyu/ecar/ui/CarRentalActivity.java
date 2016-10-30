@@ -14,14 +14,12 @@ import com.xieyu.ecar.injector.V;
  * @author wangfeng
  *
  */
-public class CarRentalActivity extends BackableTitleBarActivity
-{
+public class CarRentalActivity extends BackableTitleBarActivity {
 	@V
 	private WebView car_rental;
 
 	@Override
-	protected void onCreate(Bundle savedInstance)
-	{
+	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setContentView(R.layout.activity_car_rental);
 		String s = getIntent().getStringExtra("type");
@@ -38,14 +36,15 @@ public class CarRentalActivity extends BackableTitleBarActivity
 		car_rental.getSettings().setAppCacheEnabled(true);
 		car_rental.getSettings().setDomStorageEnabled(true);
 
-		if ("1".equals(s))
-		{
+		if ("1".equals(s)) {
 			getTitleBar().setTitle(R.string.car_rental);
 			car_rental.loadUrl("file:///android_asset/zuchexuzhi.html");
-		} else if ("2".equals(s))
-		{
+		}else if ("2".equals(s)) {
 			car_rental.loadUrl("file:///android_asset/zucheliucheng.html");
 			getTitleBar().setTitle(R.string.car_progress);
+		}else if ("3".equals(s)) {
+			car_rental.loadUrl("file:///android_asset/about.html");
+			getTitleBar().setTitle(R.string.about_lvneng);
 		}
 
 	}

@@ -176,6 +176,12 @@
         <activity
             android:name="com.xieyu.ecar.ui.UploadIdCardActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.xieyu.ecar.ui.MyDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.xieyu.ecar.ui.MyDetailEditActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.baidu.location.f"

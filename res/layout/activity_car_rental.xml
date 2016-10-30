@@ -5,10 +5,10 @@
     android:background="@color/main_bg"
     android:orientation="vertical" >
 
-       <WebView 
+    <WebView
         android:id="@+id/car_rental"
+        android:layout_marginTop="@dimen/dimen_10dp"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

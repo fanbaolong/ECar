@@ -86,11 +86,9 @@ public class RechargeActivity extends BackableTitleBarActivity {
 	}
 
 	@Override
-	public void onClick(View v)
-	{
+	public void onClick(View v) {
 		super.onClick(v);
-		switch (v.getId())
-		{
+		switch (v.getId()) {
 		case R.id.btn_recharge:
 
 			topay();

@@ -48,8 +48,7 @@ import com.xieyu.ecar.util.StringUtil;
  *
  *         个人中心
  */
-public class MyActivity extends BackableTitleBarActivity
-{
+public class MyActivity extends BackableTitleBarActivity {
 	@V
 	private CircularImageView my_user_head;
 	@V
@@ -68,8 +67,7 @@ public class MyActivity extends BackableTitleBarActivity
 	private static final int RESULT_REQUEST_CODE = 2; //
 
 	@Override
-	protected void onCreate(Bundle savedInstance)
-	{
+	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setContentView(R.layout.activity_my);
 		getTitleBar().setTitle(R.string.my_information);
@@ -265,8 +263,7 @@ public class MyActivity extends BackableTitleBarActivity
 						mAddress = mUser.getAddress();
 
 						upDateView(mUser);
-					} else
-					{
+					} else {
 						App.showShortToast(jsonObject.getString("resultMes"));
 					}
 
@@ -317,8 +314,7 @@ public class MyActivity extends BackableTitleBarActivity
 		params.addBodyParameter("email", getText(my_email_edit));
 		params.addBodyParameter("address", getText(my_address_edit));
 
-		x.http().post(params, new Callback.CommonCallback<String>()
-		{
+		x.http().post(params, new Callback.CommonCallback<String>() {
 
 			@Override
 			public void onSuccess(String result)

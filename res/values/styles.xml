@@ -1,14 +1,42 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-    </style>
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-     <!-- 我的里面的文字布局 -->
-      <style name="mine_text" parent="AppTheme">
+
+    <!-- 个人详情里面的layout -->
+    <style name="input_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_45dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_15dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingRight">@dimen/dimen_10dp</item>
+    </style>
+    
+    <!-- 个人详情里面的layout左边text -->
+    <style name="input_layout_left_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_h2</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <!-- 个人详情里面的layout右边text -->
+    <style name="input_layout_right_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_h2</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:drawableRight">@drawable/ic_right</item>
+        <item name="android:drawablePadding">@dimen/dimen_10dp</item>
+        <item name="android:textColor">@color/text_3</item>
+    </style>
+
+    <!-- 我的里面的文字布局 -->
+    <style name="mine_text" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dimen_45dp</item>
         <item name="android:gravity">center_vertical</item>
@@ -17,15 +45,15 @@
         <item name="android:background">@color/white</item>
         <item name="android:paddingRight">@dimen/dimen_10dp</item>
     </style>
-    
-     <!-- 竖线 -->
-      <style name="v_line">
+
+    <!-- 竖线 -->
+    <style name="v_line">
         <item name="android:layout_width">1px</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/line_bg</item>
     </style>
     <!-- 横线 -->
-      <style name="h_line">
+    <style name="h_line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
         <item name="android:background">@color/line_bg</item>
@@ -44,7 +72,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    
+
     <style name="order_charge_text" parent="@style/layout_match_wrap">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/dimen_15dp</item>
@@ -77,9 +105,10 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
-    
-         <!-- 自定义仿IOS的ActionSheet底部Dialog的样式 ，有模糊效果 -->
+
+    <!-- 自定义仿IOS的ActionSheet底部Dialog的样式 ，有模糊效果 -->
     <style name="ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">
+
         <!-- 背景透明 -->
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -96,39 +125,57 @@
         <!-- Dialog进入及退出动画 -->
         <item name="android:windowAnimationStyle">@style/ActionSheetDialogAnimation</item>
     </style>
-    
-     <!-- ActionSheet进出动画 -->
+
+    <!-- ActionSheet进出动画 -->
     <style name="ActionSheetDialogAnimation" parent="@android:style/Animation.Dialog">
         <item name="android:windowEnterAnimation">@anim/actionsheet_dialog_in</item>
         <item name="android:windowExitAnimation">@anim/actionsheet_dialog_out</item>
     </style>
-    
-    <style name="add_dialog" parent="@android:style/Theme.Dialog">  
-        <item name="android:windowFrame">@null</item><!-- 边框 -->  
-        <item name="android:windowIsFloating">true</item><!-- 是否浮现在activity之上 -->  
-        <item name="android:windowIsTranslucent">false</item><!-- 半透明 -->  
-        <item name="android:windowNoTitle">true</item><!-- 无标题 -->  
-        <item name="android:windowBackground">@drawable/kong</item><!-- 自己想要的背景 -->  
-        <item name="android:backgroundDimEnabled">true</item><!-- 模糊 -->  
+
+    <style name="add_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+ <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+ <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item>
+ <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+ <!-- 无标题 -->
+        <item name="android:windowBackground">@drawable/kong</item>
+ <!-- 自己想要的背景 -->
+        <item name="android:backgroundDimEnabled">true</item>
+ <!-- 模糊 -->
     </style>
-    
+
     <!-- 下拉样式 -->
     <style name="TypeSelAnimationFade">
         <item name="android:windowEnterAnimation">@anim/push_top_in</item>
         <item name="android:windowExitAnimation">@anim/push_top_out</item>
-    </style>  
-    
+    </style>
+
     <style name="Dialog" parent="android:style/Theme.Dialog">
         <item name="android:background">#00000000</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
     </style>
-    
-     <!-- 对话动画 -->
+
+    <!-- 对话动画 -->
     <style name="dialogWindowAnim" mce_bogus="1" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/anim_translate_in</item>
         <item name="android:windowExitAnimation">@anim/anim_translate_out</item>
     </style>
-    
+
+    <!-- 蓝色btn -->
+    <style name="btn_normal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/btn_login_select</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

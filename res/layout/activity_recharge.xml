@@ -9,6 +9,7 @@
         android:id="@+id/choice_recharge_radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
         android:background="@color/white"
         android:checkedButton="@+id/choice_recharge_radio0"
         android:orientation="vertical" >
@@ -98,14 +99,7 @@
 
     <Button
         android:id="@+id/btn_recharge"
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_yellow_select"
-        android:text="@string/to_recharge"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        style="@style/btn_normal"
+        android:text="@string/to_recharge" />
 
 </LinearLayout>

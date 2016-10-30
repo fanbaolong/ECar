@@ -30,8 +30,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/register_name_left_text"
                     android:layout_toLeftOf="@+id/register_name_del"
+                    android:layout_toRightOf="@+id/register_name_left_text"
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/username_hint"
@@ -67,8 +67,8 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/moreuser_down"
-                    android:contentDescription="@null" />
+                    android:contentDescription="@null"
+                    android:src="@drawable/moreuser_down" />
             </RelativeLayout>
 
             <View
@@ -142,15 +142,8 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_login_select"
-        android:text="@string/title_login"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        style="@style/btn_normal"
+        android:text="@string/title_login" />
 
     <RelativeLayout
         android:layout_width="fill_parent"

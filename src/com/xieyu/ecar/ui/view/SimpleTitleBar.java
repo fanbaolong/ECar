@@ -100,7 +100,7 @@ public class SimpleTitleBar extends FrameLayout
 	 */
 	public SimpleTitleBar setTitle(String title)
 	{
-		setTitle(title, Color.WHITE);
+		setTitle(title, R.color.text_3);
 		return self();
 	}
 

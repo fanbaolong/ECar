@@ -12,8 +12,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.xieyu.ecar.R;
-import com.xieyu.ecar.ui.AboutActivity;
+import com.xieyu.ecar.ui.CarRentalActivity;
 import com.xieyu.ecar.ui.MyActivity;
+import com.xieyu.ecar.ui.MyDetailActivity;
 import com.xieyu.ecar.ui.MyWalletActivity;
 
 /**
@@ -95,7 +96,7 @@ public class MainMineFragemnt extends BaseFragment{
 		super.onClick(v);
 		switch (v.getId()) {
 		case R.id.user_detail_relat:
-			startActivity(new Intent(getActivity(),MyActivity.class));
+			startActivity(new Intent(getActivity(),MyDetailActivity.class));
 			break;
 		case R.id.title_right:
 			break;
@@ -107,13 +108,24 @@ public class MainMineFragemnt extends BaseFragment{
 		case R.id.tv_my_piao:
 			break;
 		case R.id.tv_flow:
+			Intent it = new Intent();
+			it.setClass(getActivity(), CarRentalActivity.class);
+			it.putExtra("type", "2");
+			getActivity().startActivity(it);
 			break;
 		case R.id.tv_notice:
+			Intent it1 = new Intent();
+			it1.setClass(getActivity(), CarRentalActivity.class);
+			it1.putExtra("type", "1");
+			getActivity().startActivity(it1);
 			break;
 		case R.id.tv_suggest:
 			break;
 		case R.id.tv_about:
-			startActivity(new Intent(getActivity(),AboutActivity.class));
+			Intent it2 = new Intent();
+			it2.setClass(getActivity(), CarRentalActivity.class);
+			it2.putExtra("type", "3");
+			getActivity().startActivity(it2);
 			break;
 
 		default:
