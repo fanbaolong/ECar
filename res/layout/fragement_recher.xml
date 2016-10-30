@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-     <com.xieyu.ecar.ui.view.TabHeadView
+
+    <com.xieyu.ecar.ui.view.TabHeadView
         android:id="@+id/top_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
-    
+
+    <include layout="@layout/empty_view" />
 
 </LinearLayout>

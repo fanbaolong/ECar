@@ -148,6 +148,10 @@ public class MainMapFragment extends BaseFragment implements OnClickListener {
 			Gson gson = new Gson();
 			sitesCars = gson.fromJson(result, new TypeToken<List<SitesCar>>() {
 			}.getType());
+			if(sitesCars.size() == 0){
+				App.showShortToast("暂无车辆");
+				return;
+			}
 			showSitesCar();
 		}
 	}
@@ -470,6 +474,10 @@ public class MainMapFragment extends BaseFragment implements OnClickListener {
 			break;
 		case R.id.img_plcae_order:
 			ll_dialog.setVisibility(View.GONE);
+			if(sitesCars.size() == 0){
+				App.showShortToast("暂无车辆");
+				return;
+			}
 			SitesCar sitesCar = sitesCars.get(carSelect);
 			String type = sitesCar.getSite().getSiteType();
 			Intent intent;

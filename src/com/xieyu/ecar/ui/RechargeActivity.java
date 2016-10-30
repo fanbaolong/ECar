@@ -42,8 +42,7 @@ import de.greenrobot.event.EventBus;
  * 
  *         充值界面
  */
-public class RechargeActivity extends BackableTitleBarActivity
-{
+public class RechargeActivity extends BackableTitleBarActivity {
 	@V
 	private RadioButton choice_recharge_radio0, choice_recharge_radio1;
 	@V
@@ -68,8 +67,7 @@ public class RechargeActivity extends BackableTitleBarActivity
 	private String sign;
 
 	@Override
-	protected void onCreate(Bundle savedInstance)
-	{
+	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setContentView(R.layout.activity_recharge);
 		getTitleBar().setTitle(R.string.recharge);
