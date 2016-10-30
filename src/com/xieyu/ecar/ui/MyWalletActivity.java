@@ -4,11 +4,13 @@ import org.json.JSONObject;
 import org.xutils.x;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -16,8 +18,6 @@ import com.xieyu.ecar.App;
 import com.xieyu.ecar.BaseConstants;
 import com.xieyu.ecar.R;
 import com.xieyu.ecar.bean.User;
-import com.xieyu.ecar.injector.Injector;
-import com.xieyu.ecar.injector.V;
 import com.xieyu.ecar.util.PreferenceUtil;
 
 /**
@@ -25,38 +25,49 @@ import com.xieyu.ecar.util.PreferenceUtil;
  * 
  *         我的钱包
  */
-public class MyWalletActivity extends BackableTitleBarActivity {
+@ContentView(R.layout.fragment_mywallet)
+public class MyWalletActivity extends BaseActivity {
 
-	@V
-	private RelativeLayout recharge_relat, recharge_detail_relat;
-	@V
-	private TextView my_balance, freeze_balance, my_integral, my_coupons;
+	@ViewInject(R.id.title_left)
+	private ImageButton title_left;
+	
+	@ViewInject(R.id.tv_recharge)
+	private TextView tv_recharge;
+
+	@ViewInject(R.id.tv_recharge_detail)
+	private TextView tv_recharge_detail;
+
+	@ViewInject(R.id.my_balance)
+	private TextView my_balance;
+
+	@ViewInject(R.id.freeze_balance)
+	private TextView freeze_balance;
 
 	private User mUser;
 
 	@Override
 	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
-		setContentView(R.layout.fragment_mywallet);
-		getTitleBar().setTitle(R.string.my_wallet);
-		Injector.getInstance().inject(this);
-		recharge_relat.setOnClickListener(this);
-		recharge_detail_relat.setOnClickListener(this);
+
+		tv_recharge.setOnClickListener(this);
+		tv_recharge_detail.setOnClickListener(this);
+		title_left.setOnClickListener(this);
 
 		getData();
 	}
 
 	@Override
-	public void onClick(View v)
-	{
+	public void onClick(View v) {
 		super.onClick(v);
 
-		switch (v.getId())
-		{
-		case R.id.recharge_relat:
+		switch (v.getId()) {
+		case R.id.title_left:
+			finish();
+			break;
+		case R.id.tv_recharge:
 			startActivity(new Intent(MyWalletActivity.this, RechargeActivity.class), true);
 			break;
-		case R.id.recharge_detail_relat:
+		case R.id.tv_recharge_detail:
 			startActivity(new Intent(MyWalletActivity.this, MyBillListActivity.class), true);
 			break;
 
@@ -65,13 +76,12 @@ public class MyWalletActivity extends BackableTitleBarActivity {
 		}
 	}
 
-	private void getData()
-	{
+	private void getData() {
 
 		RequestParams params = new RequestParams(BaseConstants.getMember);
 		params.addBodyParameter("sessionId", PreferenceUtil.getString(MyWalletActivity.this, BaseConstants.prefre.SessionId));
 		x.http().post(params, new Callback.CommonCallback<String>()
-		{
+				{
 
 			@Override
 			public void onSuccess(String result)
@@ -113,13 +123,12 @@ public class MyWalletActivity extends BackableTitleBarActivity {
 			public void onFinished()
 			{
 			}
-		});
+				});
 
 	}
 
-	private void updateView()
-	{
-		my_balance.setText("可用余额：" + (mUser.getBalance() - mUser.getFreezeBalance()) + "元");
-		freeze_balance.setText("冻结押金：" + mUser.getFreezeBalance() + "元");
+	private void updateView() {
+		my_balance.setText(""+ (mUser.getBalance() - mUser.getFreezeBalance()));
+		freeze_balance.setText(""+mUser.getFreezeBalance());
 	}
 }

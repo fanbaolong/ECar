@@ -15,6 +15,7 @@
         <item name="android:paddingLeft">@dimen/dimen_20dp</item>
         <item name="android:textSize">@dimen/text_h3</item>
         <item name="android:background">@color/white</item>
+        <item name="android:paddingRight">@dimen/dimen_10dp</item>
     </style>
     
      <!-- 竖线 -->

@@ -51,8 +51,7 @@ import com.xieyu.ecar.util.PreferenceUtil;
  *         登录
  */
 @ContentView(R.layout.activity_login)
-public class LoginActivity extends SimpleTitleBarActivity
-{
+public class LoginActivity extends SimpleTitleBarActivity {
 
 	@ViewInject(R.id.register_name_edit)
 	private EditText mUserNameEdit;
@@ -82,15 +81,13 @@ public class LoginActivity extends SimpleTitleBarActivity
 	private PopupWindow popupWindow;
 
 	@Override
-	protected void onCreate(Bundle savedInstance)
-	{
+	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		getTitleBar().setTitle(R.string.title_login);
 		String seesionId = PreferenceUtil.getString(this, BaseConstants.prefre.SessionId);
-		if (null != seesionId && !"".equals(seesionId))
-		{
-			toMainActivity();
-		}
+//		if (null != seesionId && !"".equals(seesionId)) {
+//			toMainActivity();
+//		}
 
 		showDeleteImage();
 
@@ -98,22 +95,17 @@ public class LoginActivity extends SimpleTitleBarActivity
 
 	}
 
-	private void showDeleteImage()
-	{
+	private void showDeleteImage() {
 
-		mUserNameEdit.setOnFocusChangeListener(new OnFocusChangeListener()
-		{
+		mUserNameEdit.setOnFocusChangeListener(new OnFocusChangeListener() {
 			@Override
-			public void onFocusChange(View v, boolean hasFocus)
-			{
+			public void onFocusChange(View v, boolean hasFocus) {
 				mNameDel.setVisibility((hasFocus && mUserNameEdit.getText().length() > 0) ? View.VISIBLE : View.GONE);
 				mPassDel.setVisibility(View.GONE);
 
-				if (!hasFocus)
-				{
+				if (!hasFocus) {
 					mNameDel.setVisibility(View.GONE);
-				} else
-				{
+				} else {
 					if (invalidateText(mUserNameEdit))
 						mNameDel.setVisibility(View.GONE);
 					else
@@ -125,51 +117,40 @@ public class LoginActivity extends SimpleTitleBarActivity
 		mUserNameEdit.addTextChangedListener(new TextWatcher()
 		{
 			@Override
-			public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3)
-			{
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
 
-				if (!invalidateText(mUserNameEdit))
-				{
+				if (!invalidateText(mUserNameEdit)) {
 					mNameDel.setVisibility(View.VISIBLE);
-				} else
-				{
+				} else {
 					mNameDel.setVisibility(View.GONE);
 				}
 			}
 
 			@Override
-			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3)
-			{
+			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
 			}
 
 			@Override
-			public void afterTextChanged(Editable arg0)
-			{
+			public void afterTextChanged(Editable arg0) {
 			}
 		});
 
-		mNameDel.setOnClickListener(new OnClickListener()
-		{
+		mNameDel.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View arg0)
-			{
+			public void onClick(View arg0) {
 				mUserNameEdit.setText("");
 			}
 		});
 
-		mUserPassEdit.setOnFocusChangeListener(new OnFocusChangeListener()
-		{
+		mUserPassEdit.setOnFocusChangeListener(new OnFocusChangeListener() {
 			@Override
-			public void onFocusChange(View v, boolean hasFocus)
-			{
+			public void onFocusChange(View v, boolean hasFocus) {
 				mNameDel.setVisibility(View.GONE);
 				mPassDel.setVisibility((hasFocus && mUserPassEdit.getText().length() > 0) ? View.VISIBLE : View.GONE);
 
-				if (!hasFocus)
-				{
+				if (!hasFocus) {
 					mPassDel.setVisibility(View.GONE);
-				} else
-				{
+				} else {
 					if (invalidateText(mUserPassEdit))
 						mPassDel.setVisibility(View.GONE);
 					else
@@ -178,16 +159,12 @@ public class LoginActivity extends SimpleTitleBarActivity
 			}
 		});
 
-		mUserPassEdit.addTextChangedListener(new TextWatcher()
-		{
+		mUserPassEdit.addTextChangedListener(new TextWatcher() {
 			@Override
-			public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3)
-			{
-				if (!invalidateText(mUserNameEdit))
-				{
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+				if (!invalidateText(mUserNameEdit)) {
 					mPassDel.setVisibility(View.VISIBLE);
-				} else
-				{
+				} else {
 					mPassDel.setVisibility(View.GONE);
 				}
 			}
