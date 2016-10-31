@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -35,6 +36,8 @@ public class BookCarInfoActivity extends BaseActivity{
 	private TextView tv_payment_account, tv_car_title, tv_car_num, tv_car_electricity
 	, tv_car_name, tv_car_deposit, tv_car_hour_money, tv_car_day_money, tv_car_week_money
 	, tv_car_address, tv_car_state, tv_car_speed, tv_car_full, tv_order;
+	@V
+	private ImageView img_back;
 	
 	private Pay mPay;
 	private SitesCar sitesCar = new SitesCar();
@@ -52,6 +55,7 @@ public class BookCarInfoActivity extends BaseActivity{
 		sitesCar = (SitesCar) getIntent().getSerializableExtra("mpo");
 		ll_payment_account.setOnClickListener(this);
 		tv_order.setOnClickListener(this);
+		img_back.setOnClickListener(this);
 		
 		tv_car_title.setText(StringUtil.isNull(sitesCar.getCarCategory().getName()));
 		tv_car_name.setText(StringUtil.isNull(sitesCar.getCarCategory().getName()));
@@ -69,7 +73,7 @@ public class BookCarInfoActivity extends BaseActivity{
 	public void responseSuccess(String result, String msg, String tag) {
 		super.responseSuccess(result, msg, tag);
 		if (tag.equals(BaseConstants.sendOrder)) {
-			Log.d("sendOrder", result);
+			App.showShortToast("预约成功");
 		}
 	}
 
@@ -105,7 +109,9 @@ public class BookCarInfoActivity extends BaseActivity{
 					this, BaseConstants.prefre.SessionId));
 			requestPost(true, "正在下单...", BaseConstants.sendOrder, params);
 			break;
-
+		case R.id.img_back:
+			back();
+			break;
 		default:
 			break;
 		}

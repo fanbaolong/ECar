@@ -103,7 +103,7 @@
                 android:id="@+id/tv_car_deposit"
                 style="@style/layout_wrap_all"
                 android:layout_gravity="center_vertical"
-                android:text="押金：￥1000"
+                android:text="押金：￥200"
                 android:textColor="@color/text_9"
                 android:textSize="@dimen/text_h4" />
 

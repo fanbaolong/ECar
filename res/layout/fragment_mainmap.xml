@@ -30,15 +30,15 @@
 
             <ImageView
                 android:id="@+id/dingwei_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
                 android:contentDescription="@null"
                 android:src="@drawable/logo_dingwei" />
 
             <ImageView
                 android:id="@+id/img_key"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
                 android:contentDescription="@null"
                 android:src="@drawable/key" />
         </LinearLayout>

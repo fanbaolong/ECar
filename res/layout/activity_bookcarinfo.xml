@@ -96,7 +96,7 @@
                     android:layout_gravity="center_vertical"
                     android:drawablePadding="@dimen/dimen_5dp"
                     android:drawableRight="@drawable/deposit"
-                    android:text="￥1000"
+                    android:text="￥200"
                     android:textColor="@color/text_6"
                     android:textSize="@dimen/text_h3" />
             </LinearLayout>
