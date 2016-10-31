@@ -80,35 +80,21 @@ public class ControlActivity extends BaseActivity{
 	}
 	
 	private void setHttp(String url){
-		showLoadingDialog("操作中...");
 		RequestParams params = new RequestParams(url);
 		params.addBodyParameter("sessionId", PreferenceUtil.getString(this, BaseConstants.prefre.SessionId));
-		x.http().post(params, new CommonCallback<String>()
-				{
-					@Override
-					public void onSuccess(String result)
-					{
-
-					}
-
-					@Override
-					public void onError(Throwable ex, boolean isOnCallback)
-					{
-						App.showShortToast(ex.getMessage());
-					}
-
-					@Override
-					public void onCancelled(CancelledException cex)
-					{
-					}
-
-					@Override
-					public void onFinished()
-					{
-						dismissLoadingDialog();
-					}
-
-				});
+		requestPost(true, "", url, params);
+	}
+	
+	@Override
+	public void responseSuccess(String result, String msg, String tag) {
+		super.responseSuccess(result, msg, tag);
+		if (tag.equals(BaseConstants.openDoor)) {
+			App.showShortToast("开门成功");
+		}else if (tag.equals(BaseConstants.clsoeDoor)) {
+			App.showShortToast("关门成功");
+		}else if (tag.equals(BaseConstants.lookCar)) {
+			App.showShortToast("鸣笛成功");
+		}
 	}
 	
 }
