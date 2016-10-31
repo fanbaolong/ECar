@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/layout_match_wrap"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/info_switch"
+            style="@style/layout_match_wrap"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50dp"
+                android:gravity="center_vertical"
+                android:text="车辆配置信息"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_h3" />
+
+            <ImageView
+                android:id="@+id/info_switch_arrow"
+                style="@style/layout_wrap_all"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/order_arrow_selector"
+                android:clickable="true" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/car_config_info"
+            style="@style/layout_match_wrap"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:background="@color/line_bg" />
+
+            <RelativeLayout
+                style="@style/layout_match_wrap"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:drawableLeft="@drawable/car_full_charge"
+                    android:drawablePadding="@dimen/dimen_10dp"
+                    android:gravity="center_vertical"
+                    android:text="满电续航："
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h3" />
+
+                <TextView
+                    android:id="@+id/tv_car_full_charge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:text="100KM"
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h3" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:background="@color/line_bg" />
+
+            <RelativeLayout
+                style="@style/layout_match_wrap"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:drawableLeft="@drawable/car_speed"
+                    android:drawablePadding="@dimen/dimen_10dp"
+                    android:gravity="center_vertical"
+                    android:text="最高时速："
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h3" />
+
+                <TextView
+                    android:id="@+id/tv_car_max_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:text="50KM/h"
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h3" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:background="@color/line_bg" />
+
+            <RelativeLayout
+                style="@style/layout_match_wrap"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:drawableLeft="@drawable/car_state"
+                    android:drawablePadding="@dimen/dimen_10dp"
+                    android:gravity="center_vertical"
+                    android:text="功率："
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h3" />
+
+                <TextView
+                    android:id="@+id/tv_car_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:text="50KW"
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h3" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line_bg" />
+
+        <TextView
+            android:id="@+id/order_number"
+            style="@style/layout_wrap_all"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:text="订单编号："
+            android:textColor="@color/text_9"
+            android:textSize="@dimen/text_h3" />
+
+        <TextView
+            android:id="@+id/order_time"
+            style="@style/layout_wrap_all"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:text="下单时间："
+            android:textColor="@color/text_9"
+            android:textSize="@dimen/text_h3" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_10dp" />
+    </LinearLayout>
+
+</LinearLayout>

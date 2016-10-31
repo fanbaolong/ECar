@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_layout"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                style="@style/layout_match_wrap"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dimen_5dp"
+                android:paddingTop="@dimen/dimen_5dp" >
+
+                <include layout="@layout/order_title" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:background="@color/main_bg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dimen_10dp"
+                    android:paddingRight="@dimen/dimen_10dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/green_arrow"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="取车位置"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_h3" />
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/line_bg" />
+
+                        <TextView
+                            android:id="@+id/get_car_addr"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="圆融时代广场"
+                            android:textColor="@color/text_9"
+                            android:textSize="@dimen/text_h3" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/red_arrow"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="还车位置"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_h3" />
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/line_bg" />
+
+                        <TextView
+                            android:id="@+id/return_car_addr"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="圆融时代广场"
+                            android:textColor="@color/text_9"
+                            android:textSize="@dimen/text_h3" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:background="@color/main_bg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dimen_10dp"
+                    android:paddingRight="@dimen/dimen_10dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/green_arrow"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="取车时间"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_h3" />
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/line_bg" />
+
+                        <TextView
+                            android:id="@+id/get_car_time"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="圆融时代广场"
+                            android:textColor="@color/text_9"
+                            android:textSize="@dimen/text_h3" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/red_arrow"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="还车时间"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_h3" />
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/line_bg" />
+
+                        <TextView
+                            android:id="@+id/return_car_time"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="圆融时代广场"
+                            android:textColor="@color/text_9"
+                            android:textSize="@dimen/text_h3" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:background="@color/main_bg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen_10dp"
+                    android:paddingRight="@dimen/dimen_10dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="租车计费时长"
+                        android:textColor="@color/text_9"
+                        android:textSize="@dimen/text_h3" />
+
+                    <View
+                        android:layout_width="1px"
+                        android:layout_height="@dimen/dimen_30dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/line_bg" />
+
+                    <TextView
+                        android:id="@+id/repay_car_duration"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="1天2小时30分10秒"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:background="@color/main_bg" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingRight="@dimen/dimen_10dp" >
+
+                    <TextView
+                        style="@style/layout_wrap_all"
+                        android:gravity="center_vertical"
+                        android:text="预估租车费用"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/yugu_cost"
+                        style="@style/layout_wrap_all"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:text="￥ 500.00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/coupon_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingRight="@dimen/dimen_10dp" >
+
+                    <TextView
+                        style="@style/layout_wrap_all"
+                        android:gravity="center_vertical"
+                        android:text="优惠券"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/coupon"
+                        style="@style/layout_wrap_all"
+                        android:layout_alignParentRight="true"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@drawable/ic_right"
+                        android:gravity="center_vertical"
+                        android:text="-￥ 500.00"
+                        android:textColor="@color/text_orange"
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingRight="@dimen/dimen_10dp" >
+
+                    <TextView
+                        android:id="@+id/jifen_max_amount"
+                        style="@style/layout_wrap_all"
+                        android:gravity="center_vertical"
+                        android:text="可抵用金额￥30，要使用￥"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+
+                    <EditText
+                        android:id="@+id/jifen_amount"
+                        android:layout_width="@dimen/dimen_50dp"
+                        android:layout_height="@dimen/dimen_30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/jifen_max_amount"
+                        android:background="@drawable/bg_et_amount"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="300.00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingRight="@dimen/dimen_10dp" >
+
+                    <TextView
+                        style="@style/layout_wrap_all"
+                        android:gravity="center_vertical"
+                        android:text="预计待付"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/yugu_pending"
+                        style="@style/layout_wrap_all"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:text="￥ 300.00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_h3" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_bg" />
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_alignParentBottom="true" >
+
+            <TextView
+                android:id="@+id/tv_order_return_car"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:layout_marginLeft="@dimen/dimen_50dp"
+                android:layout_marginRight="@dimen/dimen_50dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/holo_title_corners"
+                android:gravity="center"
+                android:text="确认还车"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_20dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

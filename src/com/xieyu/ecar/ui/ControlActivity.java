@@ -65,7 +65,7 @@ public class ControlActivity extends BaseActivity{
 			setHttp(BaseConstants.openDoor);
 			break;
 		case R.id.img_car_close://关门
-			setHttp(BaseConstants.clsoeDoor);
+			setHttp(BaseConstants.closeDoor);
 			break;
 		case R.id.img_car_blow://鸣笛
 			setHttp(BaseConstants.lookCar);
@@ -90,7 +90,7 @@ public class ControlActivity extends BaseActivity{
 		super.responseSuccess(result, msg, tag);
 		if (tag.equals(BaseConstants.openDoor)) {
 			App.showShortToast("开门成功");
-		}else if (tag.equals(BaseConstants.clsoeDoor)) {
+		}else if (tag.equals(BaseConstants.closeDoor)) {
 			App.showShortToast("关门成功");
 		}else if (tag.equals(BaseConstants.lookCar)) {
 			App.showShortToast("鸣笛成功");

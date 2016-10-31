@@ -22,7 +22,7 @@
                 android:layout_width="@dimen/dimen_30dp"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
-                android:background="@drawable/order_progress_line_selector"/>
+                android:background="@drawable/order_progress_line_selector" />
 
             <ImageView
                 android:id="@+id/order_success"
@@ -32,7 +32,7 @@
                 android:layout_marginLeft="@dimen/dimen_5dp"
                 android:layout_marginRight="@dimen/dimen_5dp"
                 android:layout_toRightOf="@+id/order_success_left"
-                android:background="@drawable/order_progress_circle_selector"/>
+                android:background="@drawable/order_progress_circle_selector" />
 
             <ImageView
                 android:id="@+id/using_line_left"
@@ -112,5 +112,29 @@
                 android:textSize="@dimen/text_h3" />
         </RelativeLayout>
     </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_match_wrap"
+        android:paddingLeft="@dimen/dimen_10dp"
+        android:paddingRight="@dimen/dimen_10dp" >
+
+        <TextView
+            android:id="@+id/order_statu"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:drawableLeft="@drawable/order_ring"
+            android:drawablePadding="@dimen/dimen_10dp"
+            android:gravity="center_vertical"
+            android:text="车辆使用中"
+            android:textColor="@color/text_9"
+            android:textSize="@dimen/text_h3" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:background="@color/line_bg" />
 
 </LinearLayout>

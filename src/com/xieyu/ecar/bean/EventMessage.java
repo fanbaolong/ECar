@@ -21,6 +21,7 @@ public enum EventMessage
 	/** 有更新 */
 	hasUpdate,
 	/** 更新map */
-	updateMap
-
+	updateMap,
+	/** 更新订单中开关UI */
+	switchUpdate
 }

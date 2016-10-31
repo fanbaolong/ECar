@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/layout_match_wrap"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50dp"
+                android:drawableLeft="@drawable/order_config_info"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:text="租车明细"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="取车位置"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/get_car_addr_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="圆融时代广场"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="还车位置"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/return_car_addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="圆融时代广场"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="取车时间"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/get_car_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="2016/06/20 15:30:00"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="还车时间"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/return_car_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="2016/06/23 15:30:00"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="租车计费时长："
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/repay_car_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="1天2小时30分10秒"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/line_bg" />
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="租车费用"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/car_rental_costs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="￥ 500.00"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="优惠券"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="-￥ 200.00"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="抵用金额"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/amount_credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="-￥ 20.00"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="实付款"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/real_payment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="￥ 300.00"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/line_bg" />
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_50dp"
+                android:gravity="center_vertical"
+                android:text="付款账号"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+
+            <TextView
+                android:id="@+id/payment_account"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="绿能公司"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:background="@color/line_bg" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -381,5 +381,108 @@ public class HttpOrderUtil
 			}
 		});
 	}
+	/**
+	 * 开车门
+	 * 
+	 * @param id
+	 */
+	public static void openDoor(final Activity cActivity, String id)
+	{
+		((BaseActivity) cActivity).showLoadingDialog("开车门中。。");
+		RequestParams params = new RequestParams(BaseConstants.openDoor);
+		params.addBodyParameter("sessionId", PreferenceUtil.getString(cActivity, BaseConstants.prefre.SessionId));
+
+		x.http().post(params, new CommonCallback<String>()
+		{
+			@Override
+			public void onSuccess(String result)
+			{
+				App.showLog("result==" + result);
+				try
+				{
+					JSONObject jsonObject = new JSONObject(result);
+					if (jsonObject.getString("resultType").equals("OK"))
+					{
+						EventBus.getDefault().post(EventMessage.switchUpdate);
+					} 
+					App.showShortToast(jsonObject.getString("resultMes"));
+
+				} catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+
+			}
+
+			@Override
+			public void onError(Throwable ex, boolean isOnCallback)
+			{
+				App.showShortToast(ex.getMessage());
+			}
+
+			@Override
+			public void onCancelled(CancelledException cex)
+			{
+			}
+
+			@Override
+			public void onFinished()
+			{
+				((BaseActivity) cActivity).dismissLoadingDialog();
+			}
+		});
+	}
+
+	/**
+	 * 关车门
+	 * 
+	 * @param id
+	 */
+	public static void closeDoor(final Activity cActivity, String id)
+	{
+		((BaseActivity) cActivity).showLoadingDialog("关车门中。。");
+		RequestParams params = new RequestParams(BaseConstants.closeDoor);
+		params.addBodyParameter("sessionId", PreferenceUtil.getString(cActivity, BaseConstants.prefre.SessionId));
+
+		x.http().post(params, new CommonCallback<String>()
+		{
+			@Override
+			public void onSuccess(String result)
+			{
+				App.showLog("result==" + result);
+				try
+				{
+					JSONObject jsonObject = new JSONObject(result);
+					if (jsonObject.getString("resultType").equals("OK"))
+					{
+						EventBus.getDefault().post(EventMessage.switchUpdate);
+					} 
+					App.showShortToast(jsonObject.getString("resultMes"));
+
+				} catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+
+			}
+
+			@Override
+			public void onError(Throwable ex, boolean isOnCallback)
+			{
+				App.showShortToast(ex.getMessage());
+			}
+
+			@Override
+			public void onCancelled(CancelledException cex)
+			{
+			}
+
+			@Override
+			public void onFinished()
+			{
+				((BaseActivity) cActivity).dismissLoadingDialog();
+			}
+		});
+	}
 
 }

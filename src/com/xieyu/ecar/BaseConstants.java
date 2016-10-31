@@ -116,7 +116,7 @@ public final class BaseConstants
 	/* 开门 */
 	public static final String openDoor = API + SERVICE + "/openDoor";
 	/* 关门*/
-	public static final String clsoeDoor = API + SERVICE + "/clsoeDoor";
+	public static final String closeDoor = API + SERVICE + "/clsoeDoor";
 	/* 鸣笛 */
 	public static final String lookCar = API + SERVICE + "/lookCar";
 	/* 获取某个网点可用的车辆（用于选择下单车辆） */
@@ -125,5 +125,7 @@ public final class BaseConstants
 	public static final String getCurrentCar = API + SERVICE + "/getCurrentCar";
 	/* 下单 */
 	public static final String sendOrder = API + SERVICE + "/sendOrder";
+	/* 取车 */
+	public static final String takeOrder = API + SERVICE + "/takeOrder";
 
 }

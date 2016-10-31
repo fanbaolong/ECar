@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/layout_match_wrap"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50dp"
+                android:gravity="center_vertical"
+                android:text="用车信息"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/order_used_time"
+                    style="@style/layout_match_wrap"
+                    android:gravity="center_horizontal"
+                    android:text="01天13时20分15秒"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_h2" />
+
+                <TextView
+                    style="@style/layout_match_wrap"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="已使用时间"
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/order_current_cost"
+                    style="@style/layout_match_wrap"
+                    android:gravity="center_horizontal"
+                    android:text="3000.00"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_h2" />
+
+                <TextView
+                    style="@style/layout_match_wrap"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="当前费用"
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/order_current_charge"
+                    style="@style/layout_match_wrap"
+                    android:gravity="center_horizontal"
+                    android:text="50%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_h2" />
+
+                <TextView
+                    style="@style/layout_match_wrap"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="当前电量"
+                    android:textColor="@color/text_9"
+                    android:textSize="@dimen/text_h4" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50dp"
+                android:gravity="center_vertical"
+                android:text="开关车门"
+                android:textColor="@color/text_9"
+                android:textSize="@dimen/text_h3" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:background="@color/line_bg" />
+
+        <LinearLayout
+            style="@style/layout_match_wrap"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" >
+
+                <ImageView
+                    android:id="@+id/order_open_door"
+                    style="@style/layout_wrap_all"
+                    android:background="@drawable/btn_car_open" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" >
+
+                <ImageView
+                    android:id="@+id/order_close_door"
+                    style="@style/layout_wrap_all"
+                    android:background="@drawable/btn_car_close" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/line_bg" />
+
+    </LinearLayout>
+
+</LinearLayout>
